@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragmet_id"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/degrade"
+    tools:context=".activityprofesores.fragmentregistrarprofesores.registrarProfesora">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+
+                <TextView
+                    android:id="@+id/tv_eligetupractica"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Complete los campos ↓"
+                    android:textColor="#FFFFFF"
+                    android:textSize="22sp"
+                    android:textStyle="bold"></TextView>
+
+
+            <LinearLayout
+                android:id="@+id/linearNombreProfesora"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/txtNombre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="@string/ingrese_nombre"
+                    android:inputType="textPersonName" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearApellidoProfesora"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/txtApelldio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="@string/txtApellido"
+                    android:inputType="textPersonName" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearEdadProfesora"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="25dp"
+               android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+                    <Button
+                        android:id="@+id/btnvProfesora"
+                        style="@style/Widget.AppCompat.Button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/border_boton"
+                        android:text="Ver PROFESORAS"
+                        android:textColor="#FFFFFF"
+                        android:textSize="15dp"
+                        android:textStyle="bold"></Button>
+                    <Button
+                        android:id="@+id/btnSubirProfesora"
+                        style="@style/Widget.AppCompat.Button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="8dp"
+                        android:background="@drawable/border_boton"
+                        android:text="REGISTRAR PROFESORA"
+                        android:textColor="#FFFFFF"
+                        android:textSize="15dp"
+                        android:textStyle="bold"></Button>
+                </LinearLayout>
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                >
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.core.widget.NestedScrollView>

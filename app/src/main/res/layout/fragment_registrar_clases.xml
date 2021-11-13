@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragmet_id1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/degrade"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:context=".activityprofesores.fragmentregistrarclase.registrarClaseFragment">
+
+
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginRight="0dp"
+        android:fillViewport="true">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/tv_eligetupractica"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Registrá tu clase ↓"
+                    android:textColor="#FFFFFF"
+                    android:textSize="22sp"
+                    android:textStyle="bold"></TextView>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/borde_spinner"
+
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_tipodedanza"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginRight="0dp"
+                    android:text="TIPO DE DANZA: "
+                    android:textColor="#FAFFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:typeface="serif"></TextView>
+
+                <Spinner
+                    android:id="@+id/tipodedanza"
+                    style="@style/Platform.Widget.AppCompat.Spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginRight="10dp"
+                    android:scrollbarStyle="insideInset"
+                    android:spinnerMode="dialog"
+                    android:layout_marginLeft="15dp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/borde_spinner"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_nivel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="NIVEL: "
+                    android:textColor="#FAFFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:typeface="serif"
+                    android:layout_marginLeft="75dp"></TextView>
+
+                <Spinner
+                    android:id="@+id/niveldedanza"
+                    style="@style/Platform.Widget.AppCompat.Spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:spinnerMode="dialog" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/borde_spinner"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/numero_clase"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="75dp"
+                    android:text="CLASE: "
+                    android:textColor="#FAFFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:typeface="serif"></TextView>
+
+                <Spinner
+                    android:id="@+id/nro_clase"
+                    style="@style/Platform.Widget.AppCompat.Spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:spinnerMode="dialog" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/borde_spinner"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/profe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginRight="0dp"
+                    android:text="@string/profesora"
+                    android:textColor="#FAFFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:typeface="serif"></TextView>
+
+                <Spinner
+                    android:id="@+id/s_Profesora"
+                    style="@style/Platform.Widget.AppCompat.Spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:spinnerMode="dialog" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/borde_spinner"
+                    android:layout_marginLeft="25dp"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:id="@+id/btnSubirVideo"
+                        android:layout_width="wrap_content"
+                        android:textColor="@color/blanco"
+                        android:buttonTint="@color/blanco"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="5dp"
+                        android:textSize="15sp"
+                        android:layout_height="wrap_content"
+                        android:text="Obtener video desde el celular" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/archivo"
+                    android:background="@drawable/border_boton"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="#FFFFFF" />
+
+
+            <Button
+                android:id="@+id/btnSubirProfesora"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="5dp"
+                android:elevation="2dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginRight="50dp"
+                android:background="@color/transeparente"
+                android:text="SUBIR VIDEO"
+                android:textColor="#FFFFFF"
+                android:textSize="25sp"
+                android:textStyle="bold"></Button>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ProgressBar
+                    android:id="@+id/progressBar2"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="wrap_content"
+                    android:max="100"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtPorcentaje"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="1"
+                    android:textColor="#EDFFFFFF"
+                    android:textSize="20sp" />
+
+                <ImageButton
+                    android:id="@+id/btnPause"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="5dp"
+                    app:srcCompat="@drawable/exo_icon_pause" />
+
+                <ImageButton
+                    android:id="@+id/btnCancelar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/cerrarsesion" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtSubidoExitoso"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#11AA00"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                 />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:text="Vista previa video."
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="15dp">
+
+                <VideoView
+                    android:id="@+id/video"
+                    android:layout_width="300dp"
+                    android:layout_height="250dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="5dp" />
+
+                <ImageView
+                    android:id="@+id/imgPlay"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/empezarvideo" />
+
+                <ImageView
+                    android:id="@+id/imgPause"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/pausa" />
+            </FrameLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</androidx.core.widget.NestedScrollView>

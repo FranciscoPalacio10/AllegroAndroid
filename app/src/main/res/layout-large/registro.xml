@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/rosado"
+    tools:context=".ingreso.registro">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+
+            <EditText
+                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ "
+                android:id="@+id/nombre"
+                android:drawableLeft="@drawable/ic_person_outline_black_24dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="35dp"
+                android:layout_marginRight="35dp"
+                android:layout_marginTop="15dp"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="@string/ingrese_nombre"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/apellido"
+                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ "
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="35dp"
+                android:layout_marginRight="35dp"
+                android:layout_marginTop="20dp"
+                android:drawablePadding="10dp"
+                android:drawableLeft="@drawable/ic_person_outline_black_24dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/ingrese_apellido"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/registrousuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="35dp"
+                android:layout_marginRight="35dp"
+                android:layout_marginTop="20dp"
+                android:drawableLeft="@drawable/mail"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="@string/ingrese_mail"
+                android:inputType="textEmailAddress" />
+
+
+            <EditText
+                android:id="@+id/registrocontrasena"
+                android:drawableLeft="@drawable/ic_vpn_key_black_24dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="35dp"
+                android:layout_marginRight="35dp"
+                android:layout_marginTop="20dp"
+                android:drawablePadding="10dp"
+                android:hint="@string/ingrese_contraseña"
+                android:ems="10"
+                android:inputType="textPassword" />
+
+
+            <Button
+                android:id="@+id/registrar"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="55dp"
+                android:layout_marginRight="55dp"
+                android:padding="8dp"
+                android:elevation="1dp"
+                android:textColor="@color/blanco"
+                android:layout_weight="1"
+                android:paddingBottom="8dp"
+                android:background="@color/azulAllegro"
+                android:onClick="registrarUsuario"
+                android:text="@string/registrarse" />
+
+            <ProgressBar
+                android:id="@+id/cargar"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

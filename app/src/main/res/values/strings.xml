@@ -1,0 +1,115 @@
+<resources>
+    <string name="app_name">Allegro</string>
+
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="iniciarClase">Inciar clase</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="ingrese_nombre">Ingrese Nombre</string>
+    <string name="ingrese_apellido">Ingrese Apellido</string>
+    <string name="ingrese_mail">Ingrese Email</string>
+    <string name="Modifique_mail">Modifique Email</string>
+    <string name="registrarse">REGISTRARSE</string>
+    <string name="profesora">PROFESORA:</string>
+    <string name="ruta_del_archivo">ruta del archivo</string>
+    <string name="cerrar_sesion">Cerrar Sesion</string>
+    <string name="otro">OTRO</string>
+    <string name="historial">HISTORIAL</string>
+    <string name="eliminar_cuenta">Eliminar cuenta</string>
+    <string name="suscripci_n">SUSCRIPCIÓN</string>
+    <string name="redes_sociales">REDES SOCIALES</string>
+    <string name="cuenta">CUENTA</string>
+    <string name="nombre">NOMBRE</string>
+    <string name="home">home</string>
+    <string name="todo">TODO</string>
+    <string name="title_activity_registro_clases_profesora">registroClasesProfesora</string>
+    <string name="tab_text_1">Registar Profesora</string>
+    <string name="tab_text_2">Registar Clase</string>
+    <string name="tab_text_3">Editar Clase</string>
+    <string name="tituloRegistrar">TABLERO CONTROL CLASES</string>
+    <string name="title_activity_registar_clases">Tablero de control</string>
+    <string-array name="SeleccionarTipo">
+        <item>"Seleccionar"</item>
+        <item>"Debes seleccionar Tipo de Danza"</item>
+    </string-array>
+    <string name="txtNombre">Ingrese nombre</string>
+    <string name="txtApellido">Ingrese apellido</string>
+    <string name="txtEdad">Ingrese edad</string>
+    <string name="numero_de_clase">Numero de clase:</string>
+    <string name="nombre_profesora">Nombre profesora:</string>
+    <string name="fecha_publicaci_n">Fecha publicación</string>
+    <string name="clasica">CLASICA</string>
+    <string name="JAZZ">JAZZ</string>
+    <string name="fortalecer1">EJERCICIOS PARA FORTALECER PIE-PUNTAS</string>
+    <string name="balletrepertorio1">BALLET REPERTORIO</string>
+    <string name="elongacion">ELONGACIÓN</string>
+    <string name="contemporaneo">CONTEMPORANEO</string>
+    <string name="yogance">YOGA</string>
+    <string name="descripcionClasica">Clases de Danza Clásica método vaganova actualizado con conceptos modernos.
+        La clase se compone por todos los ejercicios fundamentales divida en dos grandes momentos:\n
+        •BARRA-CENTRO. \n
+        •Clases PROGRESIVAS y ACUMULATIVAS.
+</string>
+    <string name="descripcionContemporaneo">Clases de Danza Contemporanea que aborda los conceptos básicos de esta disciplina: \n
+        suelo, trabajo de la gravedad y el peso, exploración del movimiento, consciencia corporal, entre otros.
+</string>
+    <string name="descripcionBallet">Clases complemento de la danza clásica. Montaje de las variaciones
+        del ballet clásico y neoclásico repertorio más reconocido a nivel mundial.</string>
+    <string name="descripcionYogance">Clases de yoga Fusión:\n
+        •Hatha Yoga \n
+        •Yoga Flow \n
+        •Trabajo de técnicas de respiración y relajación.
+    </string>
+    <string name="descripcionElongacion">Clases complemento de la Danza Clásica. Dictada por profesora de danza y licenciada en kinesiologia.
+        Con ejercicios con objetivos específicos: \n
+       •Elongación.
+        </string>
+    <string name="descripcionJazz">Clases de Danza Jazz. Compuesta por todos los ejercicios y estilos:\n
+        •Modern Jazz \n
+        •Theater Jazz \n
+        •Jazz Contemporaneo \n
+        •Jazz Lirical \n
+        •Jazz Fusión.</string>
+    <string name="descripcionFortalcerPuntas">Clases complemento de la danza clásica. Dictada por profesora de danza y licenciada en kinesiologia.
+        Con ejercicios con objetivos específicos: \n
+        •Fuerza de PIE. \n
+        •Trabajo de Puntas.
+       </string>
+    <string name="nivel">NIVELES: </string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="descripcionNivelIncicial">Iniciación en el movimiento, a través de la elongación. </string>
+    <string name="descripcionNivelIncialClasica">Iniciación en el movimiento, a través de la danza clásica y la expresión corporal.
+        Utilizando técnicas adecuadas a la edad; como juegos, cuentos, disfraces, etc.
+        La clase está a cargo de una maestra jardinera. Edades: de 3 a 5 años.</string>
+    <string name="descripcionNivelIncialJazz">Iniciación en el movimiento, a través de la danza jazz y la expresión corporal.
+        Utilizando técnicas adecuadas a la edad; como juegos, cuentos, disfraces, etc.
+        La clase está a cargo de una maestra jardinera. Edades: de 3 a 5 años.</string>
+    <string name="descripcionPrincipianteI">• Curso Técnico: 1° año – 2° año \n
+        • Edades: 6 a 8 años de edad con ningún año de danza anterior o 1 hasta 2 años de danza anterior.</string>
+    <string name="descripcionPrincipianteII">• Curso Técnico: 3° año  - 4° año. \n
+            • Edades: 8 a  10  años  con  1 año hasta 4 años de danza anterior. </string>
+    <string name="descripcionIntermedio">• Curso Técnico: 5° año – 6° año - 7° año \n
+    • Edades: 10 a 13 años  con 3 o 4 años de danza anterior. Con manejo de zapatillas de puntas (inicial - intermedio). </string>
+    <string name="descripcionAvanzado">•  Curso Técnico: 7 ° año  a 12° año. \n
+        •  Edades: 13 años en adelante con 6 años de danza mínimo. Con manejo de zapatillas de puntas ( intermedio - avanzado) </string>
+    <string name="descripcionNivelIncicialConte">Iniciación en el movimiento, a través de la danza contemporánea.
+        Utilizando técnicas adecuadas a la edad; como juegos, cuentos, disfraces, etc.
+        La clase está a cargo de una maestra jardinera. Edades: de 3 a 5 años.
+    </string>
+    <string name="claseNro">CLASE NRO°:</string>
+    <string name="fechavideo">FECHA VIDEO:</string>
+    <string name="clasesencurso">Clases iniciadas</string>
+    <string name="clasesfinalziada">Clases finalizadas</string>
+    <string name="repetirClase">repetir clase</string>
+    <string name="continuarClase">continuar clase</string>
+    <string name="tiempoClase">TIEMPO:</string>
+    <string name="fecha">"INICIÓ EL: "</string>
+    <string name="nivele">NIVEL:</string>
+    <string name="fechaFinalada">"FINALIZÓ EL: "</string>
+    <string name="ingrese_contraseña">Ingrese Contraseña</string>
+    <string name="instagram">Instagram</string>
+    <string name="allegroInstagram">\@allegroinstitutodedanzas</string>
+    <string name="fitnesDance">FITNESS DANCE</string>
+
+</resources>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="rosado">#B5FF0099</color>
+    <color name="negro">#ED000000</color>
+    <color name="menuTabb">#E61481</color>
+    <color name="menuTabb1">#ECE61481</color>
+    <color name="transeparente">#00000000</color>
+    <color name="blanco">#FFFFFF</color>
+    <color name="azulAllegro">#5777b4</color>
+    <color name="redesScoiales">#0510E6</color>
+</resources>

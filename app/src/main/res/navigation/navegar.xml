@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navegar"
+    app:startDestination="@id/home">
+
+    <fragment
+        android:id="@+id/home"
+        android:name="com.example.allegrod.home.home"
+        android:label="ALLEGRO"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_home_to_registrarClases"
+            app:destination="@id/registrarClases"
+            app:enterAnim="@anim/nav_default_pop_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim"
+            app:popEnterAnim="@anim/nav_default_enter_anim"
+            app:popExitAnim="@anim/nav_default_exit_anim"
+            app:popUpTo="@id/home" />
+        <action
+            android:id="@+id/action_home_to_nivelClaseSeleccionado"
+            app:destination="@id/nivelClaseSeleccionado"
+            app:enterAnim="@anim/nav_default_pop_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_exit_anim"
+            app:popUpTo="@id/home" />
+        <action
+            android:id="@+id/action_home_to_clases"
+            app:destination="@id/clases" />
+    </fragment>
+    <activity
+        android:id="@+id/reproductorClase"
+        android:name="com.example.allegrod.reprodcutor.reproductorClase"
+        android:label="REPRODUCTOR ALLEGRO"
+        tools:layout="@layout/activity_reproductor_clase" />
+    <fragment
+        android:id="@+id/configuracion"
+        android:name="com.example.allegrod.caractersticas.caracteristicas"
+        android:label="fragment_caracteristicas"
+        tools:layout="@layout/fragment_caracteristicas" />
+    <fragment
+        android:id="@+id/clases"
+        android:name="com.example.allegrod.clases.clases"
+        android:label="fragment_clases"
+        tools:layout="@layout/fragment_clases" >
+        <action
+            android:id="@+id/action_clases_to_configuracion"
+            app:destination="@id/configuracion" />
+        <action
+            android:id="@+id/action_clases_to_reproductorClase"
+            app:destination="@id/reproductorClase"
+            app:popUpTo="@id/home" />
+    </fragment>
+    <activity
+        android:id="@+id/autenticacion"
+        android:name="com.example.allegrod.ingreso.autenticacion"
+        android:label="activity_autenticacion"
+        tools:layout="@layout/activity_autenticacion" />
+    <activity
+        android:id="@+id/registro2"
+        android:name="com.example.allegrod.ingreso.registro"
+        android:label="registro"
+        tools:layout="@layout/registro" />
+
+    <activity
+        android:id="@+id/registrarClases"
+        android:name="com.example.allegrod.activityprofesores.registrarClases"
+        android:label="activity_registrar_clases"
+        tools:layout="@layout/activity_registrar_clases" />
+    <fragment
+        android:id="@+id/editarClases"
+        android:name="com.example.allegrod.activityprofesores.fragmeteditarclases.editarClases"
+        android:label="fragment_editar_clases"
+        tools:layout="@layout/fragment_editar_clases" >
+        <action
+            android:id="@+id/action_editarClases_to_registrarProfesora"
+            app:destination="@id/registrarProfesora" />
+    </fragment>
+    <fragment
+        android:id="@+id/registrarClaseFragment"
+        android:name="com.example.allegrod.activityprofesores.fragmentregistrarclase.registrarClaseFragment"
+        android:label="fragment_registrar_clases"
+        tools:layout="@layout/fragment_registrar_clases" >
+        <action
+            android:id="@+id/action_registrarClaseFragment_to_editarClases"
+            app:destination="@id/editarClases" />
+    </fragment>
+    <fragment
+        android:id="@+id/registrarProfesora"
+        android:name="com.example.allegrod.activityprofesores.fragmentregistrarprofesores.registrarProfesora"
+        android:label="fragment_registrar_profesora"
+        tools:layout="@layout/fragment_registrar_profesora" >
+        <action
+            android:id="@+id/action_registrarProfesora_to_registrarClaseFragment"
+            app:destination="@id/registrarClaseFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nivelClaseSeleccionado"
+        android:name="com.example.allegrod.home.nivelDanza.nivelClaseSeleccionado"
+        android:label="NIVELES CLASES"
+        tools:layout="@layout/fragment_nivel_clase_seleccionado" >
+        <action
+            android:id="@+id/action_nivelClaseSeleccionado_to_clasesRegistradas"
+            app:destination="@id/clasesRegistradas"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_enter"
+            app:popEnterAnim="@anim/fragment_fade_enter"
+            app:popExitAnim="@anim/fragment_fade_exit"
+            app:popUpTo="@id/nivelClaseSeleccionado" />
+    </fragment>
+    <fragment
+        android:id="@+id/clasesRegistradas"
+        android:name="com.example.allegrod.home.clasesRegistradas.clasesRegistradas"
+        android:label="ELEGIR CLASE"
+        tools:layout="@layout/fragment_clases_registradas" >
+        <action
+            android:id="@+id/action_clasesRegistradas_to_reproductorClase"
+            app:destination="@id/reproductorClase"
+            app:enterAnim="@anim/nav_default_pop_enter_anim" />
+    </fragment>
+</navigation>

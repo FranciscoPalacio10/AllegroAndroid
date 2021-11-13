@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="35dp"
+    android:background="@color/transeparente"
+    android:elevation="20dp"
+    android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/txtEstilo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:text="12345678910123456187852156321"
+            android:textAlignment="center"
+            android:textColor="@color/negro"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+
+        <ImageView
+            android:id="@+id/imageButtonEstilo"
+            android:layout_width="164dp"
+            android:layout_height="193dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/bordeclases1"
+            android:paddingTop="10dp"
+            app:srcCompat="@drawable/danzajazz5" />
+
+
+</LinearLayout>
