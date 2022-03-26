@@ -29,25 +29,14 @@ import static androidx.core.content.ContextCompat.getSystemService;
 
 public class MainActivity extends AppCompatActivity {
     public static String usuario="names";
-    private BottomNavigationView bottomNavigationView;
-    private FrameLayout frameLayout;
-    private String urlVideo;
     private NavController navController;
     private BottomNavigationView navView;
-    public static Activity getactivy;
-    private int contador=0;
-
-    private home homefragment;
-    private clases clasesfragment;
-    private caracteristicas caracteristicasfragment;
-    private nivelClaseSeleccionado nivelClaseSeleccionado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-       navView = findViewById(R.id.nav_view);
+        navView = findViewById(R.id.nav_view);
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.home, R.id.clases, R.id.configuracion)
                 .build();
@@ -65,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 switch (destination.getId()){
                     case R.id.nivelClaseSeleccionado:
                     case R.id.clasesRegistradas:
+                    case R.id.choseProfile:
                         ocultarMenu();
                         break;
                     default:

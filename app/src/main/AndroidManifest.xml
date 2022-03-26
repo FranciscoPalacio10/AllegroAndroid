@@ -15,9 +15,6 @@
         android:roundIcon="@mipmap/allegroicono_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".caractersticas.pagosMercadoPagos.Pafos">
-
-        </activity>
         <activity
             android:name=".activityprofesores.registrarClases"
             android:label="@string/title_activity_registar_clases"
