@@ -24,6 +24,7 @@ import android.widget.Toast;
 
 import com.example.allegrod.MainActivity;
 import com.example.allegrod.R;
+import com.example.allegrod.services.FireBaseLoginService;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -46,16 +47,15 @@ public class autenticacion extends AppCompatActivity {
     private String TAG = "autenticacion";
     private ProgressDialog progressDialog;
     public static final int RC_SIGN_IN = 7;
-    private GoogleSignInClient mGoogleSignInClient;
     private SignInButton signInButton;
-
+    private FireBaseLoginService fireBaseLoginService;
     @Override
     public void onBackPressed() {
         super.onBackPressed();
 
     }
 
-    private FirebaseAuth mAuth;
+
 
     @Override
     protected void onDestroy() {
@@ -73,17 +73,10 @@ public class autenticacion extends AppCompatActivity {
         if (getIntent().getBooleanExtra("EXIT", false)) {
             finish();
         }
-
-        mAuth = FirebaseAuth.getInstance();
         progressDialog = new ProgressDialog(this);
         signInButton = findViewById(R.id.iniciarsesion);
         setGooglePlusButtonText(signInButton, "INGRESAR CON GOOGLE");
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                .build();
-        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-
+        fireBaseLoginService = new FireBaseLoginService(getString(R.string.google_sign_in),this);
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,13 +89,11 @@ public class autenticacion extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        updateUI(currentUser);
+        updateUI(fireBaseLoginService.getCurrentUser());
     }
 
     private void signIn() {
-        Intent signInIntent = mGoogleSignInClient.getSignInIntent();
-        startActivityForResult(signInIntent, RC_SIGN_IN);
+        startActivityForResult(fireBaseLoginService.getmGoogleSignInClient().getSignInIntent(), RC_SIGN_IN);
     }
 
     protected void setGooglePlusButtonText(SignInButton signInButton, String buttonText) {
@@ -138,15 +129,14 @@ public class autenticacion extends AppCompatActivity {
         progressDialog.setMessage("Verificando usuario...");
         progressDialog.show();
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
-        mAuth.signInWithCredential(credential)
+        fireBaseLoginService.getmAuth().signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            updateUI(user);
+                            updateUI(fireBaseLoginService.getCurrentUser());
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
@@ -164,7 +154,7 @@ public class autenticacion extends AppCompatActivity {
             if (account.isEmailVerified()) {
                 Toast.makeText(this, "Bienvenido/a", Toast.LENGTH_SHORT).show();
                 Bundle bundle = new Bundle();
-                bundle.putString("email", mAuth.getCurrentUser().getEmail());
+                bundle.putString("email",fireBaseLoginService.getCurrentUser().getEmail());
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent, bundle);
             } else {
