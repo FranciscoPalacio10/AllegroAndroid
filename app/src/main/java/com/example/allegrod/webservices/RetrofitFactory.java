@@ -3,6 +3,7 @@ package com.example.allegrod.webservices;
 
 import com.example.allegrod.constants.AppConstant;
 import com.example.allegrod.webservices.token.RetrofitTokenRequest;
+import com.example.allegrod.webservices.user.RetrofitUserRequest;
 
 public class RetrofitFactory {
 
@@ -10,6 +11,8 @@ public class RetrofitFactory {
         switch (tipo){
             case AppConstant.TOKEN:
                 return new RetrofitTokenRequest();
+            case AppConstant.USERS:
+                return new RetrofitUserRequest();
             default:
                 return null;
 

@@ -111,5 +111,7 @@
     <string name="instagram">Instagram</string>
     <string name="allegroInstagram">\@allegroinstitutodedanzas</string>
     <string name="fitnesDance">FITNESS DANCE</string>
+    <string name="btnSelectProfesor">Profesor</string>
+    <string name="btnSelectAlumno">Alumno</string>
 
 </resources>

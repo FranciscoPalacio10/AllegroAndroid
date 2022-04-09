@@ -12,8 +12,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface ApiRequestToken {
-
-    @POST("api/v1/auth/login/")
+    @POST("api/v1/auth/login")
     Call<ApiResponse<TokenResponse>> getToken(
             @Body TokenRequest email
     );

@@ -2,22 +2,24 @@ package com.example.allegrod.response;
 
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+
 import java.io.IOException;
 
 import retrofit2.Response;
 
 public class ApiResponse<T> {
 
-    private  int status;
+    private int status;
     private T data;
+    private String errorMessage;
 
     public ApiResponse(T data){
         this.data = data;
         status=200;
     }
 
-
-    public ApiResponse(Response<ApiResponse<T>> response) {
+    public ApiResponse(@NonNull Response<ApiResponse<T>> response) {
         status = response.code();
         if(response.isSuccessful()){
             data =  response.body().data;
@@ -63,10 +65,6 @@ public class ApiResponse<T> {
     public void setErrorMessage(String errorMessage) {
         this.errorMessage = errorMessage;
     }
-
-    private  String errorMessage;
-
-
 
     public ApiResponse(Throwable error) {
         status = 500;

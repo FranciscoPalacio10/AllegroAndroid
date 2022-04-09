@@ -28,7 +28,7 @@ public class FireBaseLoginService {
     }
 
     public FirebaseAuth getmAuth() {
-        return mAuth;
+        return FirebaseAuth.getInstance();
     }
 
     public GoogleSignInOptions getGso() {

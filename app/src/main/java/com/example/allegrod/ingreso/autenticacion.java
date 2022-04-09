@@ -42,7 +42,6 @@ import com.google.firebase.auth.GoogleAuthProvider;
 
 import java.util.regex.Pattern;
 
-
 public class autenticacion extends AppCompatActivity {
     private String TAG = "autenticacion";
     private ProgressDialog progressDialog;
@@ -55,14 +54,11 @@ public class autenticacion extends AppCompatActivity {
 
     }
 
-
-
     @Override
     protected void onDestroy() {
         NotificationManager notificationManager = ((NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE));
         notificationManager.cancelAll();
         super.onDestroy();
-
     }
 
     @Override
@@ -76,7 +72,7 @@ public class autenticacion extends AppCompatActivity {
         progressDialog = new ProgressDialog(this);
         signInButton = findViewById(R.id.iniciarsesion);
         setGooglePlusButtonText(signInButton, "INGRESAR CON GOOGLE");
-        fireBaseLoginService = new FireBaseLoginService(getString(R.string.google_sign_in),this);
+        fireBaseLoginService = new FireBaseLoginService(getString(R.string.default_web_client_id),this);
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -151,17 +147,13 @@ public class autenticacion extends AppCompatActivity {
 
     private void updateUI(FirebaseUser account) {
         if (account != null) {
-            if (account.isEmailVerified()) {
                 Toast.makeText(this, "Bienvenido/a", Toast.LENGTH_SHORT).show();
                 Bundle bundle = new Bundle();
                 bundle.putString("email",fireBaseLoginService.getCurrentUser().getEmail());
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent, bundle);
-            } else {
-                Toast.makeText(this, "Verifca tu mail", Toast.LENGTH_SHORT).show();
             }
         }
-    }
 
 }
 
