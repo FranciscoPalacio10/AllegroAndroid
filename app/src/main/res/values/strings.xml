@@ -113,5 +113,6 @@
     <string name="fitnesDance">FITNESS DANCE</string>
     <string name="btnSelectProfesor">Profesor</string>
     <string name="btnSelectAlumno">Alumno</string>
+    <string name="savedToken">\"savedToken\"</string>
 
 </resources>

@@ -80,5 +80,9 @@ public class ApiResponse<T> {
                 '}';
     }
 
+    public boolean isSuccesful(){
+        return status >= 200 && status < 300;
+    }
+
 
 }

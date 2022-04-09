@@ -12,4 +12,8 @@ public class AppConstant {
     public static final String USERS = "User";
 
     public static final String TOKEN = "Token";
+
+    public static final String USER_TOKEN = "UserToken";
+    public static final String TIME_USER_TOKEN = "TimeUserToken";
+    public static final String USER_ISLOGIN = "UserIsLogin";
 }

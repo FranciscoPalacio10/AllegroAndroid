@@ -5,24 +5,18 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationManagerCompat;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import android.app.Activity;
-import android.app.NotificationManager;
-import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.FrameLayout;
 
-import com.example.allegrod.caractersticas.caracteristicas;
-import com.example.allegrod.clases.clases;
-import com.example.allegrod.home.nivelDanza.nivelClaseSeleccionado;
-import com.example.allegrod.home.home;
+import android.view.View;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import static androidx.core.content.ContextCompat.getSystemService;
@@ -32,11 +26,12 @@ public class MainActivity extends AppCompatActivity {
     private NavController navController;
     private BottomNavigationView navView;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        navView = findViewById(R.id.nav_view);
+                navView = findViewById(R.id.nav_view);
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.home, R.id.clases, R.id.configuracion)
                 .build();

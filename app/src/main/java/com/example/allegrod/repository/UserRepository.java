@@ -19,13 +19,11 @@ import retrofit2.Response;
 public class UserRepository {
     private static final String TAG = UserRepository.class.getSimpleName();
     private ApiRequestUser apiRequestUser;
-    private String token;
-    public UserRepository(String token) {
+    public UserRepository() {
         this.apiRequestUser = RetrofitFactory.getRetrofit(AppConstant.USERS).getRetrofitInstance().create(ApiRequestUser.class);
-        this.token = token;
     }
 
-    public LiveData<UserGetResponse> getUser(String email) {
+    public LiveData<UserGetResponse> getUser(String email, String token) {
         MutableLiveData<UserGetResponse> data = new MutableLiveData<>();
         apiRequestUser.getUser(new UserRequest(email), token).enqueue(new Callback<ApiResponse<UserGetResponse>>() {
             @Override
@@ -38,7 +36,7 @@ public class UserRepository {
             Log.d(TAG,t.getMessage());
             }
         });
-        return  data;
+        return data;
     }
 
 

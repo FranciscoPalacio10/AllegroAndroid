@@ -2,6 +2,7 @@ package com.example.allegrod.ingreso;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
 
 import android.app.AlertDialog;
 import android.app.NotificationManager;
@@ -23,8 +24,12 @@ import android.widget.Toast;
 
 
 import com.example.allegrod.MainActivity;
+import com.example.allegrod.ProccesLogin;
 import com.example.allegrod.R;
+import com.example.allegrod.constants.AppConstant;
+import com.example.allegrod.models.token.TokenResponse;
 import com.example.allegrod.services.FireBaseLoginService;
+import com.example.allegrod.viewmodel.TokenViewModel;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -48,6 +53,7 @@ public class autenticacion extends AppCompatActivity {
     public static final int RC_SIGN_IN = 7;
     private SignInButton signInButton;
     private FireBaseLoginService fireBaseLoginService;
+    private TokenViewModel tokenViewModel;
     @Override
     public void onBackPressed() {
         super.onBackPressed();
@@ -150,10 +156,19 @@ public class autenticacion extends AppCompatActivity {
                 Toast.makeText(this, "Bienvenido/a", Toast.LENGTH_SHORT).show();
                 Bundle bundle = new Bundle();
                 bundle.putString("email",fireBaseLoginService.getCurrentUser().getEmail());
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent, bundle);
+                loadUserFromApi(fireBaseLoginService.getCurrentUser().getEmail(),bundle);
+                Intent intent = new Intent(autenticacion.this, ProccesLogin.class);
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         }
+
+    private void loadUserFromApi(String email, Bundle bundle) {
+        tokenViewModel= ViewModelProviders.of(this).get(TokenViewModel.class);
+        String token = tokenViewModel.getBearerToken(email);
+        bundle.putString(AppConstant.USER_ISLOGIN,token);
+        Log.i(TAG,token.toString());
+    }
 
 }
 
