@@ -3,7 +3,7 @@ package com.example.allegrod.webservices;
 
 import com.example.allegrod.constants.AppConstant;
 import com.example.allegrod.webservices.token.RetrofitTokenRequest;
-import com.example.allegrod.webservices.user.RetrofitUserRequest;
+import com.example.allegrod.webservices.user.allegroback.RetrofitUserRequest;
 
 public class RetrofitFactory {
 

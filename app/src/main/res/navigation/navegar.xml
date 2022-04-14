@@ -3,13 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navegar"
-    app:startDestination="@id/choseProfile">
+    app:startDestination="@id/home">
 
     <fragment
         android:id="@+id/home"
         android:name="com.example.allegrod.home.home"
         android:label="ALLEGRO"
         tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_home_to_registrarClases"
+            app:destination="@id/registrarClases"
+            app:enterAnim="@anim/nav_default_pop_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim"
+            app:popEnterAnim="@anim/nav_default_enter_anim"
+            app:popExitAnim="@anim/nav_default_exit_anim"
+            app:popUpTo="@id/home" />
         <action
             android:id="@+id/action_home_to_nivelClaseSeleccionado"
             app:destination="@id/nivelClaseSeleccionado"
@@ -45,7 +53,17 @@
             app:destination="@id/reproductorClase"
             app:popUpTo="@id/home" />
     </fragment>
+    <activity
+        android:id="@+id/autenticacion"
+        android:name="com.example.allegrod.ui.start.Autenticacion"
+        android:label="activity_autenticacion"
+        tools:layout="@layout/activity_autenticacion" />
 
+    <activity
+        android:id="@+id/registrarClases"
+        android:name="com.example.allegrod.activityprofesores.registrarClases"
+        android:label="activity_registrar_clases"
+        tools:layout="@layout/activity_registrar_clases" />
     <fragment
         android:id="@+id/editarClases"
         android:name="com.example.allegrod.activityprofesores.fragmeteditarclases.editarClases"
@@ -96,17 +114,5 @@
             android:id="@+id/action_clasesRegistradas_to_reproductorClase"
             app:destination="@id/reproductorClase"
             app:enterAnim="@anim/nav_default_pop_enter_anim" />
-    </fragment>
-    <fragment
-        android:id="@+id/choseProfile"
-        android:name="com.example.allegrod.ChoseProfile"
-        android:label="fragment_chose_profile"
-        tools:layout="@layout/fragment_chose_profile" >
-        <action
-            android:id="@+id/action_choseProfile_to_home"
-            app:destination="@id/home" />
-        <action
-            android:id="@+id/action_choseProfile_to_registrarClaseFragment"
-            app:destination="@id/registrarClaseFragment" />
     </fragment>
 </navigation>

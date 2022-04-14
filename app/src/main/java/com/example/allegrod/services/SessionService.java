@@ -14,35 +14,38 @@ import java.util.Date;
 
 public class SessionService {
     private SharedPreferences sharedPref;
-
+    SharedPreferences.Editor editor;
     public SessionService(Context context) {
         sharedPref = context.getSharedPreferences(context.getString(R.string.app_name), Context.MODE_PRIVATE);
+        editor = sharedPref.edit();
     }
 
-    public void SaveBearerToken(String token) {
-        SharedPreferences.Editor editor = sharedPref.edit();
+    public void SaveBearerToken(String email, String token) {
         if(token != ""){
-            editor.putString(AppConstant.USER_TOKEN, "Bearer " + token);
+            editor.putString(email, "Bearer " + token);
             Long time = Calendar.getInstance().getTime().getTime();
-            editor.putLong(AppConstant.TIME_USER_TOKEN, time);
+            editor.putLong(email + AppConstant.TIME_USER_TOKEN, time);
             editor.apply();
         }
     }
 
-    public String GetBearerToken() {
-        if(sharedPref.contains(AppConstant.USER_TOKEN)){
-            return sharedPref.getString(AppConstant.USER_TOKEN, null);
+    public String GetBearerToken(String email) {
+        if(sharedPref.contains(email)){
+            return sharedPref.getString(email, null);
         }
         return "";
     }
 
-    public Date GetBearerTokenTimeCreated() {
-        Long dateLong = sharedPref.getLong(AppConstant.TIME_USER_TOKEN, 0);
+    public Date GetBearerTokenTimeCreated(String email) {
+        Long dateLong = sharedPref.getLong(email + AppConstant.TIME_USER_TOKEN, 0);
         if (dateLong > 0) {
             return new Date(dateLong);
         }
         return null;
     }
 
+    public void ClearSharedPreferences(){
+        editor.clear().commit();
+    }
 
 }

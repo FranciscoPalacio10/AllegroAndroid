@@ -28,7 +28,6 @@ public class TokenRepository {
         apiRequestToken.getToken(new TokenRequest(email)).enqueue(new Callback<ApiResponse<TokenResponse>>() {
             @Override
             public void onResponse(Call<ApiResponse<TokenResponse>> call, Response<ApiResponse<TokenResponse>> response) {
-                TokenResponse result = response.body().getData();
                 callback.saveResponse(new ApiResponse<TokenResponse>(response));
             }
             @Override

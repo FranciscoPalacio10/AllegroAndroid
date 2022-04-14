@@ -14,14 +14,12 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.allegrod.R;
-import com.example.allegrod.home.clasesRegistradas.adaptadorClasesRegistradas;
-import com.example.allegrod.ingreso.autenticacion;
+import com.example.allegrod.ui.start.Autenticacion;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class adaptadorCaractersticas extends  RecyclerView.Adapter<adaptadorCaractersticas.caracterisitcasHolder> {
@@ -103,7 +101,7 @@ public class adaptadorCaractersticas extends  RecyclerView.Adapter<adaptadorCara
     }
 
     private void salir(int i) {
-        Intent intent = new Intent(context, autenticacion.class);
+        Intent intent = new Intent(context, Autenticacion.class);
         intent.setFlags(i);
         context.startActivity(intent);
     }

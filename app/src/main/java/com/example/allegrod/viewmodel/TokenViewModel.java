@@ -31,29 +31,31 @@ public class TokenViewModel extends AndroidViewModel {
     }
 
     private void loadBearer(String email) {
+        sessionService.ClearSharedPreferences();
         tokenRepository.getToken(email, new OnCallBackResponse<ApiResponse<TokenResponse>>() {
             @Override
             public void saveResponse(ApiResponse<TokenResponse> token) {
                 if (token.isSuccesful()) {
-                    sessionService.SaveBearerToken(token.getData().token);
+                    sessionService.SaveBearerToken(email,token.getData().token);
                 } else {
-                    sessionService.SaveBearerToken("");
+                    sessionService.SaveBearerToken(email,"");
                 }
             }
         });
     }
 
     public String getBearerToken(String email) {
-        Date dateSaved = sessionService.GetBearerTokenTimeCreated();
+        Date dateSaved = sessionService.GetBearerTokenTimeCreated(email);
         if (dateSaved == null) {
             loadBearer(email);
         } else {
             Date dateSavedMoreThree = addHoursToJavaUtilDate(dateSaved,3);
-            if (dateSaved.after(dateSavedMoreThree)) {
+            if (Calendar.getInstance().getTime().after(dateSavedMoreThree)) {
+                sessionService.ClearSharedPreferences();
                 loadBearer(email);
             }
         }
-        return sessionService.GetBearerToken();
+        return sessionService.GetBearerToken(email);
     }
 
     public Date addHoursToJavaUtilDate(Date date, int hours) {

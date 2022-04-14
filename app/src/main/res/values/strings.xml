@@ -114,5 +114,9 @@
     <string name="btnSelectProfesor">Profesor</string>
     <string name="btnSelectAlumno">Alumno</string>
     <string name="savedToken">\"savedToken\"</string>
+    <string name="completeRegister">Completar Registro</string>
+    <string name="ingrese_celular">Ingrese Celular</string>
+    <string name="ingrese_fechanacimiento">Fecha de Nacimiento</string>
+    <string name="btnCompleteRegister">Completar</string>
 
 </resources>

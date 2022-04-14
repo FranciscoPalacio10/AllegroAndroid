@@ -21,15 +21,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.example.allegrod.R;
 import com.example.allegrod.home.estiloDanza.adaptadorEstilo;
 import com.example.allegrod.home.estiloDanza.estiloDanza;
-import com.example.allegrod.ingreso.autenticacion;
-import com.example.allegrod.obtenerFecha;
+import com.example.allegrod.ui.start.Autenticacion;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
@@ -59,7 +56,7 @@ public class home extends Fragment {
     private FirebaseUser acct;
     private StorageReference pathReference ;
     private int contador=0;
-    private DatabaseReference Database, Database1;
+    private DatabaseReference Database;
     private boolean USUARIO_PRIVILEGIADO;
     private String usuariosObtenidos;
     private String UsuarioActual;
@@ -80,19 +77,17 @@ public class home extends Fragment {
                     Toast.makeText(getContext(),"Presione de nuevo para salir",Toast.LENGTH_SHORT).show();
                     contador++;
                 }else {
-                    Intent intent = new Intent(getContext(), autenticacion.class);
+                    Intent intent = new Intent(getContext(), Autenticacion.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     intent.putExtra("EXIT", true);
                     startActivity(intent);
 
                 }
                 new CountDownTimer(3000,1000){
-
                     @Override
                     public void onTick(long millisUntilFinished) {
 
                     }
-
                     @Override
                     public void onFinish() {
                         contador=0;
@@ -101,9 +96,6 @@ public class home extends Fragment {
             }
         };
         requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
-
-
-
 
     }
 
@@ -141,10 +133,7 @@ public class home extends Fragment {
         Log.e("actual",acct.getEmail());
         esUsuarioPrivilegiado();
         //llenarRecycler
-
-
         return v;
-
             }
 
 

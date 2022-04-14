@@ -49,7 +49,6 @@ public class MainActivity extends AppCompatActivity {
                 switch (destination.getId()){
                     case R.id.nivelClaseSeleccionado:
                     case R.id.clasesRegistradas:
-                    case R.id.choseProfile:
                         ocultarMenu();
                         break;
                     default:

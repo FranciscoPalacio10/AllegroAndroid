@@ -23,7 +23,7 @@ public class UserViewModel extends AndroidViewModel{
     }
 
     public LiveData<UserGetResponse> getUserResponseLiveData(String email){
-        return userRepository.getUser(email,sessionService.GetBearerToken());
+        return userRepository.get(email,sessionService.GetBearerToken(email));
     }
 
 }

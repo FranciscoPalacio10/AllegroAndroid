@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/iniciosesion"
-    tools:context=".ingreso.autenticacion"
+    tools:context=".ui.start.Autenticacion"
     android:orientation="vertical">
 
 
