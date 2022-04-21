@@ -64,12 +64,13 @@
             android:inputType="date"
             android:focusable="false"
             android:clickable="true"
-            android:onClick="showTimePickerDialog"
-            android:maxLines="1" />
+            android:onClick="showTimePickerDialog" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btnCreateUser"
             style="@style/StyleButton"
-            android:text="@string/btnCompleteRegister" />
+            android:text="@string/btnCompleteRegister"
+            android:onClick="createUser"
+            />
     </LinearLayout>
 </LinearLayout>

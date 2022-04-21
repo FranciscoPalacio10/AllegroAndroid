@@ -1,8 +1,13 @@
 package com.example.allegrod.models.user.get;
 
-public class UserGetResponse {
-    public String firstName;
-    public String lastName;
+import com.example.allegrod.models.user.User;
+import com.google.common.collect.ImmutableList;
+
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Stream;
+
+public class UserGetResponse extends User {
     public String dateOfBirth;
     public String userRoles = null;
     public String id;
@@ -20,6 +25,10 @@ public class UserGetResponse {
     public String lockoutEnd = null;
     public boolean lockoutEnabled;
     public float accessFailedCount;
+    public List<String> rol;
+    public UserGetResponse(String email, String firstName, String lastName,String rol) {
+        super(email, firstName, lastName,rol);
+    }
 
     public String getFirstName() {
         return firstName;

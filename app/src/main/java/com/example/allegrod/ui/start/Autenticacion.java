@@ -2,6 +2,7 @@ package com.example.allegrod.ui.start;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.app.NotificationManager;
@@ -14,6 +15,8 @@ import android.view.View;
 import android.widget.TextView;
 
 
+import com.example.allegrod.models.token.TokenResponse;
+import com.example.allegrod.response.ApiResponse;
 import com.example.allegrod.ui.CompleteProfileActivity;
 import com.example.allegrod.MainActivity;
 import com.example.allegrod.R;
@@ -38,9 +41,7 @@ public class Autenticacion extends AppCompatActivity {
     public static final int RC_SIGN_IN = 7;
     private SignInButton signInButton;
     private FireBaseLoginService fireBaseLoginService;
-    private TokenViewModel tokenViewModel;
     private PopUpService popUpService;
-
     @Override
     public void onBackPressed() {
         super.onBackPressed();
@@ -78,7 +79,7 @@ public class Autenticacion extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        progressDialog = ProgressDialog.show(this,"Cargando...","Iniciando Session",true);
+        progressDialog = ProgressDialog.show(this, "Cargando...", "Iniciando Session", true);
         updateUI(fireBaseLoginService.getCurrentUser());
         progressDialog.dismiss();
     }
@@ -137,44 +138,21 @@ public class Autenticacion extends AppCompatActivity {
 
 
     private void updateUI(FirebaseUser account) {
-        Log.e(TAG,"updateUi");
-        if (account != null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("email", fireBaseLoginService.getCurrentUser().getEmail());
-            initApplication(fireBaseLoginService.getCurrentUser().getEmail(), bundle);
-        }
-    }
-
-    private String loadUserFromApi(String email) {
-        tokenViewModel = ViewModelProviders.of(this).get(TokenViewModel.class);
-        return tokenViewModel.getBearerToken(email);
-    }
-
-    private void initApplication(String email, Bundle bundle) {
-        if(!onNetworkChange()){
-            String token = loadUserFromApi(email);
-            if (token != "") {
-                initMain();
-            } else {
-                initCompleteProfile();
+        try {
+            Log.e(TAG, "updateUi");
+            if (account != null && !onNetworkChange()) {
+                Intent intent = new Intent(getApplicationContext(), LoadUser.class);
+                startActivity(intent);
             }
+        } catch (Exception e) {
+            Log.e(TAG, e.getMessage());
         }
-    }
-
-    private void initCompleteProfile() {
-        Intent intent = new Intent(getApplicationContext(), CompleteProfileActivity.class);
-        startActivity(intent);
-    }
-
-    private void initMain() {
-        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-        startActivity(intent);
     }
 
     private Boolean onNetworkChange() {
-       Boolean haveInternet = BroadcastService.AppHaveConnection(getApplicationContext());
-       if (!haveInternet) {
-                popUpService.popupMessage(Autenticacion.this,"No Internet Connection. Check Your Wifi Or enter code hereMobile Data.","Sin Internet");
+        Boolean haveInternet = BroadcastService.AppHaveConnection(getApplicationContext());
+        if (!haveInternet) {
+            popUpService.popupMessage(Autenticacion.this, "No Internet Connection. Check Your Wifi Or enter code hereMobile Data.", "Sin Internet");
             return true;
         }
         return false;

@@ -1,13 +1,8 @@
-package com.example.allegrod.ui.start.utils;
+package com.example.allegrod.ui.utils;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
-import android.app.TimePickerDialog;
 import android.os.Bundle;
-import android.text.format.DateFormat;
-import android.view.View;
-import android.widget.DatePicker;
-import android.widget.TimePicker;
 
 import androidx.fragment.app.DialogFragment;
 

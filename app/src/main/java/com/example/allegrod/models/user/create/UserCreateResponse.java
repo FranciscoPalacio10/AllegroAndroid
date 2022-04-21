@@ -1,13 +1,18 @@
 package com.example.allegrod.models.user.create;
 
-import java.util.ArrayList;
+import com.example.allegrod.models.user.User;
 
-public class UserCreateResponse {
-        public String firstName;
-        public String fastName;
-        public String email;
+import java.util.ArrayList;
+import java.util.List;
+
+public class UserCreateResponse extends User {
         public String userName;
         public Result result;
+
+    public UserCreateResponse(String email, String firstName, String lastName, String dateOfBirth, String rol, String userName) {
+        super(email, firstName, lastName, dateOfBirth, rol);
+        this.userName = userName;
+    }
 
     public class Result{
         public boolean succeeded;

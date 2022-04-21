@@ -2,22 +2,15 @@ package com.example.allegrod.repository;
 
 import android.util.Log;
 
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.allegrod.constants.AppConstant;
-import com.example.allegrod.models.user.UserRequest;
+import com.example.allegrod.models.user.User;
 import com.example.allegrod.models.user.get.UserGetResponse;
 import com.example.allegrod.response.ApiResponse;
 import com.example.allegrod.services.user.IUser;
 import com.example.allegrod.services.user.UserServiceApi;
 import com.example.allegrod.services.user.UserServiceFirebase;
-import com.example.allegrod.webservices.RetrofitFactory;
-import com.example.allegrod.webservices.user.allegroback.ApiRequestUser;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import com.example.allegrod.webservices.token.OnCallBackResponse;
 
 public class UserRepository {
     private static final String TAG = UserRepository.class.getSimpleName();
@@ -29,13 +22,49 @@ public class UserRepository {
         MutableLiveData<UserGetResponse> data = new MutableLiveData<>();
         userService= new UserServiceApi(token);
         userFirebase = new UserServiceFirebase();
-        data = userFirebase.get(email);
+        MutableLiveData<UserGetResponse> finalData = data;
+
+        userFirebase.get(email, new OnCallBackResponse<UserGetResponse>() {
+            @Override
+            public void saveResponse(ApiResponse<UserGetResponse> response) {
+                if(response.isSuccesful()){
+                    finalData.setValue(response.getData());
+                }else{
+                    Log.e(TAG,response.getErrorMessage());
+                }
+            }
+        });
 
         if(data.getValue() == null){
-            data = userService.get(email);
+            userService.get(email, new OnCallBackResponse<UserGetResponse>() {
+                @Override
+                public void saveResponse(ApiResponse<UserGetResponse> response) {
+                    if(response.isSuccesful()){
+                        finalData.setValue(response.getData());
+                    }else{
+                        Log.e(TAG,response.getErrorMessage());
+                    }
+                }
+            });
         }
+        return finalData;
+    }
 
-
+    public MutableLiveData<UserGetResponse> createUser(User user) {
+        MutableLiveData<UserGetResponse> data = new MutableLiveData<>();
+        userService= new UserServiceApi();
+        userService.add(user, response -> {
+            if(response.isSuccesful()){
+                data.setValue(response.getData());
+            }else{
+                Log.e(TAG,response.getErrorMessage());
+            }
+        });
         return data;
     }
+
+
+
+
+
 }
