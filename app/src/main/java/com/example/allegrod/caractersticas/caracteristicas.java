@@ -10,7 +10,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
@@ -26,8 +25,7 @@ import com.bumptech.glide.Glide;
 
 import com.bumptech.glide.request.RequestOptions;
 import com.example.allegrod.R;
-import com.example.allegrod.activityprofesores.fragmeteditarclases.clasesRegistradas;
-import com.example.allegrod.ingreso.autenticacion;
+import com.example.allegrod.ui.start.Autenticacion;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 
@@ -45,7 +43,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Deque;
 
 
 public class caracteristicas extends Fragment{
@@ -205,7 +202,7 @@ public class caracteristicas extends Fragment{
     }
 
     private void salir(int i) {
-        Intent intent = new Intent(getContext(), autenticacion.class);
+        Intent intent = new Intent(getContext(), Autenticacion.class);
         intent.setFlags(i);
         startActivity(intent);
     }

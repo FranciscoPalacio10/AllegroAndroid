@@ -69,7 +69,7 @@ public class adaptadorEstilo extends RecyclerView.Adapter<adaptadorEstilo.adapta
                 @Override
                 public void onClick(View v) {
                     if(registro.getNombreEstilo().equals("SUBIR CLASES")){
-                        Navigation.findNavController(v).navigate(R.id.action_home_to_registrarClases);
+                        //Navigation.findNavController(v).navigate(R.id.action_home_to_registrarClases);
                     }else{
                         Bundle bundle = new Bundle();
                         bundle.putString("leyenda",registro.getLeyenda());

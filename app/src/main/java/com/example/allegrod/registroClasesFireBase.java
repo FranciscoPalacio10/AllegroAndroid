@@ -1,7 +1,6 @@
 package com.example.allegrod;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import com.example.allegrod.services.DateService;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -26,7 +25,7 @@ public class registroClasesFireBase {
     }
 
     public void hasMap(){
-        obtenerFecha obtener= obtenerFecha.getFecha();
+        DateService obtener= DateService.getInstance();
         String e=obtener.getFechaSistema();
 
         caracteristicas=new HashMap<>();

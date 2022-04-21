@@ -55,14 +55,9 @@
     </fragment>
     <activity
         android:id="@+id/autenticacion"
-        android:name="com.example.allegrod.ingreso.autenticacion"
+        android:name="com.example.allegrod.ui.start.Autenticacion"
         android:label="activity_autenticacion"
         tools:layout="@layout/activity_autenticacion" />
-    <activity
-        android:id="@+id/registro2"
-        android:name="com.example.allegrod.ingreso.registro"
-        android:label="registro"
-        tools:layout="@layout/registro" />
 
     <activity
         android:id="@+id/registrarClases"

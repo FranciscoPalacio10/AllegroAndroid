@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/degrade"
+    android:orientation="vertical"
+    tools:context=".ui.CompleteProfileActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="95dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="0dp"
+            android:text="@string/completeRegister"
+            android:layout_height="wrap_content"
+            style="@style/StyleCompleteProfile"
+            android:textSize="30sp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/editTextTextPersonName"
+            style="@style/StyleCompleteProfileBox"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/ingrese_nombre"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            tools:ignore="TextContrastCheck,TextContrastCheck" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonLastName"
+            style="@style/StyleCompleteProfileBox"
+            android:ems="10"
+            android:hint="@string/ingrese_apellido"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:autofillHints="name" />
+
+        <EditText
+            android:id="@+id/editTextPhone"
+            style="@style/StyleCompleteProfileBox"
+            android:ems="10"
+            android:hint="@string/ingrese_celular"
+            android:inputType="phone"
+            android:minHeight="48dp"
+            android:autofillHints="phone" />
+
+        <EditText
+            android:id="@+id/editTextDate"
+            android:hint="@string/ingrese_fechanacimiento"
+            style="@style/StyleCompleteProfileBox"
+            android:inputType="date"
+            android:focusable="false"
+            android:clickable="true"
+            android:onClick="showTimePickerDialog" />
+
+        <Button
+            android:id="@+id/btnCreateUser"
+            style="@style/StyleButton"
+            android:text="@string/btnCompleteRegister"
+            android:onClick="createUser"
+            />
+    </LinearLayout>
+</LinearLayout>
