@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/degrade"
     android:orientation="vertical"
-    tools:context=".ui.CompleteProfileActivity">
+    tools:context=".ui.start.CompleteProfileActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
