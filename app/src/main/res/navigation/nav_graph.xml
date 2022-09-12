@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.allegrod.home.home"
+        android:name="com.example.allegrobackend.ui.home.MateriasFragment"
         android:label="@string/home"
         tools:layout="@layout/fragment_home" />
 </navigation>

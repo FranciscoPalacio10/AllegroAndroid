@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/home"
-        android:name="com.example.allegrod.home.home"
+        android:name="com.example.allegrobackend.ui.home.MateriasFragment"
         android:label="ALLEGRO"
         tools:layout="@layout/fragment_home">
         <action
@@ -32,17 +32,17 @@
     </fragment>
     <activity
         android:id="@+id/reproductorClase"
-        android:name="com.example.allegrod.reprodcutor.reproductorClase"
+        android:name="com.example.allegrobackend.reprodcutor.reproductorClase"
         android:label="REPRODUCTOR ALLEGRO"
         tools:layout="@layout/activity_reproductor_clase" />
     <fragment
         android:id="@+id/configuracion"
-        android:name="com.example.allegrod.caractersticas.caracteristicas"
+        android:name="com.example.allegrobackend.ui.caractersticas.caracteristicas"
         android:label="fragment_caracteristicas"
         tools:layout="@layout/fragment_caracteristicas" />
     <fragment
         android:id="@+id/clases"
-        android:name="com.example.allegrod.clases.clases"
+        android:name="com.example.allegrobackend.clases.clases"
         android:label="fragment_clases"
         tools:layout="@layout/fragment_clases" >
         <action
@@ -55,23 +55,18 @@
     </fragment>
     <activity
         android:id="@+id/autenticacion"
-        android:name="com.example.allegrod.ingreso.autenticacion"
+        android:name="com.example.allegrobackend.ui.start.AutenticacionActivity"
         android:label="activity_autenticacion"
         tools:layout="@layout/activity_autenticacion" />
-    <activity
-        android:id="@+id/registro2"
-        android:name="com.example.allegrod.ingreso.registro"
-        android:label="registro"
-        tools:layout="@layout/registro" />
 
     <activity
         android:id="@+id/registrarClases"
-        android:name="com.example.allegrod.activityprofesores.registrarClases"
+        android:name="com.example.allegrobackend.ui.activityprofesores.registrarClases"
         android:label="activity_registrar_clases"
         tools:layout="@layout/activity_registrar_clases" />
     <fragment
         android:id="@+id/editarClases"
-        android:name="com.example.allegrod.activityprofesores.fragmeteditarclases.editarClases"
+        android:name="com.example.allegrobackend.ui.activityprofesores.fragmeteditarclases.editarClases"
         android:label="fragment_editar_clases"
         tools:layout="@layout/fragment_editar_clases" >
         <action
@@ -80,7 +75,7 @@
     </fragment>
     <fragment
         android:id="@+id/registrarClaseFragment"
-        android:name="com.example.allegrod.activityprofesores.fragmentregistrarclase.registrarClaseFragment"
+        android:name="com.example.allegrobackend.ui.activityprofesores.fragmentregistrarclase.registrarClaseFragment"
         android:label="fragment_registrar_clases"
         tools:layout="@layout/fragment_registrar_clases" >
         <action
@@ -89,7 +84,7 @@
     </fragment>
     <fragment
         android:id="@+id/registrarProfesora"
-        android:name="com.example.allegrod.activityprofesores.fragmentregistrarprofesores.registrarProfesora"
+        android:name="com.example.allegrobackend.ui.activityprofesores.fragmentregistrarprofesores.registrarProfesora"
         android:label="fragment_registrar_profesora"
         tools:layout="@layout/fragment_registrar_profesora" >
         <action
@@ -98,21 +93,17 @@
     </fragment>
     <fragment
         android:id="@+id/nivelClaseSeleccionado"
-        android:name="com.example.allegrod.home.nivelDanza.nivelClaseSeleccionado"
+        android:name="com.example.allegrobackend.ui.home.nivelDanza.Clases"
         android:label="NIVELES CLASES"
         tools:layout="@layout/fragment_nivel_clase_seleccionado" >
         <action
             android:id="@+id/action_nivelClaseSeleccionado_to_clasesRegistradas"
             app:destination="@id/clasesRegistradas"
-            app:enterAnim="@anim/fragment_fade_enter"
-            app:exitAnim="@anim/fragment_fade_enter"
-            app:popEnterAnim="@anim/fragment_fade_enter"
-            app:popExitAnim="@anim/fragment_fade_exit"
             app:popUpTo="@id/nivelClaseSeleccionado" />
     </fragment>
     <fragment
         android:id="@+id/clasesRegistradas"
-        android:name="com.example.allegrod.home.clasesRegistradas.clasesRegistradas"
+        android:name="com.example.allegrobackend.ui.home.clasesRegistradas.clasesRegistradas"
         android:label="ELEGIR CLASE"
         tools:layout="@layout/fragment_clases_registradas" >
         <action

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/degrade"
     app:layout_constraintTop_toTopOf="parent"
-    tools:context=".activityprofesores.fragmentregistrarclase.registrarClaseFragment">
+    tools:context=".ui.activityprofesores.fragmentregistrarclase.registrarClaseFragment">
 
 
 

@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:background="@drawable/degrade"
     android:layout_height="match_parent"
-    tools:context=".caractersticas.social.social"
+    tools:context=".ui.caractersticas.social.social"
         >
 
     <ScrollView

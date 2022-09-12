@@ -1,5 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-large/fragment_home.xml" value="0.816468253968254" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-normal/activity_autenticacion.xml" value="0.25" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-normal/activity_main.xml" value="0.30833333333333335" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-normal/adaptadorestilo.xml" value="0.2989583333333333" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-normal/fragment_home.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-xlarge/activity_main.xml" value="0.17592592592592593" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/activity_autenticacion.xml" value="0.47368421052631576" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/activity_complete_profile.xml" value="0.1" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/activity_error.xml" value="0.2140625" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/activity_load_user.xml" value="0.2563405797101449" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/activity_main.xml" value="0.8963815789473685" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/activity_pafos.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/activity_procces_login.xml" value="0.2078125" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/activity_registrar_clases.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/activity_reproductor_clase.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/activity_user.xml" value="0.28940217391304346" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/activity_youtube_reproductor.xml" value="0.20208333333333334" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/custom_player_ui.xml" value="0.34757505773672054" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/editarprofesora.xml" value="0.20208333333333334" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/exo_playback_control_view.xml" value="0.22864583333333333" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/fragment_chose_profile.xml" value="0.30833333333333335" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/fragment_home.xml" value="1.0279605263157894" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/fragment_registrar_profesora.xml" value="0.3625" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/inicialclasica.xml" value="0.2341485507246377" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/user.xml" value="0.20520833333333333" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

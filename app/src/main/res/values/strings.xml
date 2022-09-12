@@ -111,5 +111,21 @@
     <string name="instagram">Instagram</string>
     <string name="allegroInstagram">\@allegroinstitutodedanzas</string>
     <string name="fitnesDance">FITNESS DANCE</string>
+    <string name="btnSelectProfesor">Profesor</string>
+    <string name="btnSelectAlumno">Alumno</string>
+    <string name="savedToken">\"savedToken\"</string>
+    <string name="completeRegister">Completar Registro</string>
+    <string name="ingrese_celular">Ingrese Celular</string>
+    <string name="ingrese_fechanacimiento">Fecha de Nacimiento</string>
+    <string name="btnCompleteRegister">Completar</string>
+    <string name="txtError">Error:</string>
+    <string name="closeApp">Cerrar Aplicacion</string>
+    <string name="title_activity_yotube">YotubeActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
 </resources>

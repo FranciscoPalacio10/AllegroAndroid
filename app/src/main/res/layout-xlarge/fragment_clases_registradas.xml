@@ -7,7 +7,7 @@
     android:id="@+id/fragmet_id3"
     android:background="@drawable/degrade"
     android:layout_height="match_parent"
-    tools:context=".home.clasesRegistradas.clasesRegistradas">
+    tools:context=".ui.home.clasesRegistradas.clasesRegistradas">
 
     <ProgressBar
         android:id="@+id/progressClasesRegistradas"
