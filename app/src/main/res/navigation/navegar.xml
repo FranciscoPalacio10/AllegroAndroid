@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navegar"
-    app:startDestination="@id/home">
+    app:startDestination="@id/materiasFragment">
 
     <fragment
-        android:id="@+id/home"
-        android:name="com.example.allegrobackend.ui.home.MateriasFragment"
+        android:id="@+id/materiasFragment"
+        android:name="com.example.allegroandroid.ui.core.MateriasFragment"
         android:label="ALLEGRO"
-        tools:layout="@layout/fragment_home">
+        tools:layout="@layout/fragment_materias">
         <action
             android:id="@+id/action_home_to_registrarClases"
             app:destination="@id/registrarClases"
@@ -17,56 +17,50 @@
             app:exitAnim="@anim/nav_default_pop_exit_anim"
             app:popEnterAnim="@anim/nav_default_enter_anim"
             app:popExitAnim="@anim/nav_default_exit_anim"
-            app:popUpTo="@id/home" />
-        <action
-            android:id="@+id/action_home_to_nivelClaseSeleccionado"
-            app:destination="@id/nivelClaseSeleccionado"
-            app:enterAnim="@anim/nav_default_pop_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_exit_anim"
-            app:popUpTo="@id/home" />
+            app:popUpTo="@id/materiasFragment" />
         <action
             android:id="@+id/action_home_to_clases"
-            app:destination="@id/clases" />
+            app:destination="@id/fragmentHistorialDeClase" />
+        <action
+            android:id="@+id/action_materiasFragment_to_tipoClaseFragment"
+            app:destination="@id/tipoDeClaseFragment" />
     </fragment>
     <activity
         android:id="@+id/reproductorClase"
-        android:name="com.example.allegrobackend.reprodcutor.reproductorClase"
+        android:name="com.example.allegroandroid.reprodcutor.reproductorClase"
         android:label="REPRODUCTOR ALLEGRO"
         tools:layout="@layout/activity_reproductor_clase" />
     <fragment
         android:id="@+id/configuracion"
-        android:name="com.example.allegrobackend.ui.caractersticas.caracteristicas"
+        android:name="com.example.allegroandroid.ui.caractersticas.caracteristicas"
         android:label="fragment_caracteristicas"
         tools:layout="@layout/fragment_caracteristicas" />
     <fragment
-        android:id="@+id/clases"
-        android:name="com.example.allegrobackend.clases.clases"
+        android:id="@+id/fragmentHistorialDeClase"
+        android:name="com.example.allegroandroid.ui.core.clases.historialdeclases.HistorialDeClasesFragment"
         android:label="fragment_clases"
         tools:layout="@layout/fragment_clases" >
         <action
             android:id="@+id/action_clases_to_configuracion"
             app:destination="@id/configuracion" />
         <action
-            android:id="@+id/action_clases_to_reproductorClase"
-            app:destination="@id/reproductorClase"
-            app:popUpTo="@id/home" />
+            android:id="@+id/action_fragmentHistorialDeClase_to_youtubeReproducerActivity"
+            app:destination="@id/youtubeReproducerActivity" />
     </fragment>
     <activity
         android:id="@+id/autenticacion"
-        android:name="com.example.allegrobackend.ui.start.AutenticacionActivity"
+        android:name="com.example.allegroandroid.ui.start.AuthenticationActivity"
         android:label="activity_autenticacion"
-        tools:layout="@layout/activity_autenticacion" />
+        tools:layout="@layout/activity_authenticacion" />
 
     <activity
         android:id="@+id/registrarClases"
-        android:name="com.example.allegrobackend.ui.activityprofesores.registrarClases"
+        android:name="com.example.allegroandroid.ui.activityprofesores.registrarClases"
         android:label="activity_registrar_clases"
         tools:layout="@layout/activity_registrar_clases" />
     <fragment
         android:id="@+id/editarClases"
-        android:name="com.example.allegrobackend.ui.activityprofesores.fragmeteditarclases.editarClases"
+        android:name="com.example.allegroandroid.ui.activityprofesores.fragmeteditarclases.editarClases"
         android:label="fragment_editar_clases"
         tools:layout="@layout/fragment_editar_clases" >
         <action
@@ -75,7 +69,7 @@
     </fragment>
     <fragment
         android:id="@+id/registrarClaseFragment"
-        android:name="com.example.allegrobackend.ui.activityprofesores.fragmentregistrarclase.registrarClaseFragment"
+        android:name="com.example.allegroandroid.ui.activityprofesores.fragmentregistrarclase.registrarClaseFragment"
         android:label="fragment_registrar_clases"
         tools:layout="@layout/fragment_registrar_clases" >
         <action
@@ -84,31 +78,64 @@
     </fragment>
     <fragment
         android:id="@+id/registrarProfesora"
-        android:name="com.example.allegrobackend.ui.activityprofesores.fragmentregistrarprofesores.registrarProfesora"
+        android:name="com.example.allegroandroid.ui.activityprofesores.fragmentregistrarprofesores.registrarProfesora"
         android:label="fragment_registrar_profesora"
         tools:layout="@layout/fragment_registrar_profesora" >
         <action
             android:id="@+id/action_registrarProfesora_to_registrarClaseFragment"
             app:destination="@id/registrarClaseFragment" />
     </fragment>
+    <activity
+        android:id="@+id/youtubeReproducerActivity"
+        android:name="com.example.allegroandroid.ui.reproducer.YoutubeReproducerActivity"
+        android:label="YoutubeReproducerActivity" />
+
     <fragment
-        android:id="@+id/nivelClaseSeleccionado"
-        android:name="com.example.allegrobackend.ui.home.nivelDanza.Clases"
-        android:label="NIVELES CLASES"
-        tools:layout="@layout/fragment_nivel_clase_seleccionado" >
+        android:id="@+id/tipoDeClaseFragment"
+        android:name="com.example.allegroandroid.ui.core.clases.TiposDeClaseFragment"
+        android:label="fragment_tipo_de_clase"
+        tools:layout="@layout/fragment_tipo_de_clase" >
         <action
-            android:id="@+id/action_nivelClaseSeleccionado_to_clasesRegistradas"
-            app:destination="@id/clasesRegistradas"
-            app:popUpTo="@id/nivelClaseSeleccionado" />
+            android:id="@+id/action_tipoDeClaseFragment_to_clasesFragment"
+            app:destination="@id/clasesFragment" />
     </fragment>
+
+
     <fragment
-        android:id="@+id/clasesRegistradas"
-        android:name="com.example.allegrobackend.ui.home.clasesRegistradas.clasesRegistradas"
-        android:label="ELEGIR CLASE"
-        tools:layout="@layout/fragment_clases_registradas" >
+        android:id="@+id/selectCamaraClasePracticaFragment"
+        android:name="com.example.allegroandroid.ui.core.SelectCamaraClasePracticaFragment"
+        android:label="fragment_select_camara_clase_practica"
+        tools:layout="@layout/fragment_select_camara_clase_practica" >
         <action
-            android:id="@+id/action_clasesRegistradas_to_reproductorClase"
-            app:destination="@id/reproductorClase"
-            app:enterAnim="@anim/nav_default_pop_enter_anim" />
+            android:id="@+id/action_selectCamaraClasePracticaFragment_to_livePreviewActivity"
+            app:destination="@id/livePreviewActivity" />
+        <action
+            android:id="@+id/action_selectCamaraClasePracticaFragment_to_stillImageActivity"
+            app:destination="@id/stillImageActivity" />
     </fragment>
+
+    <fragment
+        android:id="@+id/clasesFragment"
+        android:name="com.example.allegroandroid.ui.core.clases.ClasesFragment"
+        android:label="fragment_clases"
+        tools:layout="@layout/fragment_clases2" >
+        <action
+            android:id="@+id/action_clasesFragment_to_selectCamaraClasePracticaFragment"
+            app:destination="@id/selectCamaraClasePracticaFragment" />
+        <action
+            android:id="@+id/action_clasesFragment_to_youtubeReproducerActivity"
+            app:destination="@id/youtubeReproducerActivity" />
+    </fragment>
+
+
+    <activity
+        android:id="@+id/livePreviewActivity"
+        android:name="com.example.allegroandroid.ia.LivePreviewActivity"
+        android:label="LivePreviewActivity" />
+    <activity
+        android:id="@+id/stillImageActivity"
+        android:name="com.example.allegroandroid.ia.StillImageActivity"
+        android:label="StillImageActivity" />
+
+
 </navigation>

@@ -2,7 +2,6 @@
     <style name="tituloHome" parent="@android:style/TextAppearance.Medium">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:text">@string/eligetupractica</item>
         <item name="android:textColor">@color/blanco</item>
         <item name="android:textStyle">bold</item>
         <item name="android:layout_gravity">center</item>
@@ -30,6 +29,22 @@
         <item name="android:textColor">@color/blanco</item>
         <item name="android:textStyle">bold</item>
         <item name="android:typeface">normal</item>
+    </style>
+
+    <style name="txtResultadosBold" parent="@android:style/TextAppearance.Medium">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/blanco</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:typeface">normal</item>
+    </style>
+
+    <style name="txtResultados" parent="@android:style/TextAppearance.Medium">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/blanco</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:layout_marginLeft">10dp</item>
     </style>
 
     <style name="StyleCompleteProfile" parent="@android:style/TextAppearance.Medium">
@@ -67,17 +82,31 @@
         <item name="android:layout_marginBottom">15dp</item>
     </style>
 
+
+    <style name="StyleRecicler">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentStart">true</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_marginTop">25dp</item>
+        <item name="android:layout_marginBottom">25dp</item>
+    </style>
+
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">#577ABD</item>
+        <item name="colorPrimaryVariant">@drawable/degrade</item>
+        <item name="colorPrimary">@color/azulAllegro</item>
+        <item name="android:windowBackground">@drawable/degrade</item>
         <item name="colorPrimaryDark">@color/azulAllegro</item>
         <item name="colorAccent">#577ABD</item>
 
     </style>
 
 
-    <style name="AppTheme.NoActionBar">
+    <style name="AppTheme.NoActionBar" parent="AppTheme">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
@@ -93,5 +122,10 @@
         <item name="android:windowCloseOnTouchOutside">true</item>
     </style>
 
-    <string name="eligetupractica">Elige tu práctica</string>
+    <string name="eligetupractica">ELIGE TU PRÁCTICA</string>
+
+
+
+
+
 </resources>

@@ -1,16 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.allegrobackend" >
+    package="com.example.allegroandroid"
+    android:installLocation="auto">
 
-    <uses-permission
-        android:name="android.permission.GET_ACCOUNTS"
-        android:maxSdkVersion="22" />
+    <uses-sdk tools:overrideLibrary="androidx.camera.camera2, androidx.camera.core, androidx.camera.view, androidx.camera.lifecycle" />
+
+    <uses-feature android:name="android.hardware.camera" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <queries>
+        <intent>
+            <action android:name="com.google.android.youtube.api.service.START" />
+        </intent>
+    </queries>
+    <queries>
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE" />
+        </intent>
+    </queries>
 
     <application
         android:allowBackup="true"
@@ -19,21 +32,36 @@
         android:roundIcon="@mipmap/allegroicono_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true" >
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".ui.core.clases.ResultActivity"
+            android:exported="true" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.mlkit.vision.DEPENDENCIES"
+            android:value="barcode,face,ocr,ica,custom_ica" />
+
+        <activity
+            android:name=".ia.ChooserActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ia.LivePreviewActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ia.StillImageActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".ui.reproducer.YoutubeReproducerActivity"
             android:configChanges="orientation|screenSize"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".ui.ErrorActivity"
-            android:exported="true" />
-        <activity
-            android:name=".ui.start.LoadUserActivity"
             android:exported="true" />
         <activity android:name=".ui.start.CompleteProfileActivity" />
         <activity
@@ -42,10 +70,10 @@
             android:parentActivityName=".ui.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
-            tools:ignore="LockedOrientationActivity" >
+            tools:ignore="LockedOrientationActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.allegrobackend.ui.MainActivity" />
+                android:value="com.example.allegroandroid.ui.MainActivity" />
         </activity>
         <activity
             android:name=".reprodcutor.reproductorClase"
@@ -61,19 +89,16 @@
             android:theme="@style/AppTheme.TemaPopu"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".inicialclasica"
-            android:screenOrientation="fullSensor"
-            android:exported="true">
-     </activity>
-        <activity
             android:name=".ui.MainActivity"
             android:screenOrientation="nosensor" />
-        <activity android:name=".ui.start.AutenticacionActivity" >
+        <activity
+            android:name=".ui.start.AuthenticationActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
-    <queries>
-        <intent>
-            <action android:name="com.google.android.youtube.api.service.START" />
-        </intent>
-    </queries>
+
 </manifest>
