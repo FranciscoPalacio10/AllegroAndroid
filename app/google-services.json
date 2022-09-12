@@ -1,42 +1,70 @@
 {
   "project_info": {
-    "project_number": "723353491578",
-    "firebase_url": "https://allegrodefinitivo.firebaseio.com",
-    "project_id": "allegrodefinitivo",
-    "storage_bucket": "allegrodefinitivo.appspot.com"
+    "project_number": "807872375086",
+    "project_id": "allegrobackend",
+    "storage_bucket": "allegrobackend.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:723353491578:android:2b283e78da1edaae5a43c3",
+        "mobilesdk_app_id": "1:807872375086:android:9b3a872ee7282fc712b2bf",
         "android_client_info": {
-          "package_name": "com.example.allegrod"
+          "package_name": "com.example.allegrobackend"
         }
       },
       "oauth_client": [
         {
-          "client_id": "723353491578-roath0477qt2oesa29l2dud4k3l1kluq.apps.googleusercontent.com",
+          "client_id": "807872375086-ufjl9ej8kv6uhmuhp8t66dnmtk50olji.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.allegrod",
-            "certificate_hash": "c47de1742fe59737ae9ff648516b76e2bb3a200e"
+            "package_name": "com.example.allegrobackend",
+            "certificate_hash": "499f09a4e0e62cc3962db86586b04c818fc33f36"
           }
         },
         {
-          "client_id": "723353491578-ascv0302qdrluce2cfl87i6ao015tvb5.apps.googleusercontent.com",
+          "client_id": "807872375086-ovu80odvpa73oqsu57rp8eqvs9egq2vh.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC3-qAfFmFi045zPOGFDYu4pHhKGc1dqHg"
+          "current_key": "AIzaSyB5PSAUDmkuAzKK9UjdcXmtsL7cZelN8Zg"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "723353491578-ascv0302qdrluce2cfl87i6ao015tvb5.apps.googleusercontent.com",
+              "client_id": "807872375086-ovu80odvpa73oqsu57rp8eqvs9egq2vh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:807872375086:android:501f1dd87834484412b2bf",
+        "android_client_info": {
+          "package_name": "com.example.allegrod"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "807872375086-ovu80odvpa73oqsu57rp8eqvs9egq2vh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5PSAUDmkuAzKK9UjdcXmtsL7cZelN8Zg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "807872375086-ovu80odvpa73oqsu57rp8eqvs9egq2vh.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

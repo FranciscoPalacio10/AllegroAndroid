@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:layout_marginBottom="5dp"
     android:background="@drawable/degrade"
-    tools:context=".caractersticas.caracteristicas">
+    tools:context=".ui.caractersticas.caracteristicas">
 
     <com.google.android.material.appbar.CollapsingToolbarLayout
         android:layout_width="match_parent"

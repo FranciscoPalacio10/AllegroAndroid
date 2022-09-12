@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/iniciosesion"
-    tools:context=".ingreso.autenticacion"
+    tools:context=".ui.start.AutenticacionActivity"
     android:orientation="vertical">
 
 
@@ -58,7 +58,7 @@
             android:inputType="textPassword" />
 
         <TextView
-            android:id="@+id/txtOlvidasteContrseña"
+            android:id="@+id/txtOlvidasteContrsena"
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

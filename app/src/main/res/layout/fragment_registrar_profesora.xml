@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/degrade"
-    tools:context=".activityprofesores.fragmentregistrarprofesores.registrarProfesora">
+    tools:context=".ui.activityprofesores.fragmentregistrarprofesores.registrarProfesora">
 
     <ScrollView
         android:layout_width="match_parent"

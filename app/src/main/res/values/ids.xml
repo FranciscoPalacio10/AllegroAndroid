@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="layoutProgessVideo" type="id"></item>
+    <item name="btnPrev" type="id"></item>
+    <item name="btnPlay" type="id"></item>
+    <item name="btnDowland" type="id"></item>
+    <item name="txtTotalTimeVideo" type="id"></item>
+    <item name="txtTimeNowVideo" type="id"></item>
+    <item name="progessVideo" type="id"></item>
+    <item name="btnAllView" type="id" />
+    <item name="btnExpandView" type="id" />
+    <item name="btnReduceView" type="id" />
+</resources>

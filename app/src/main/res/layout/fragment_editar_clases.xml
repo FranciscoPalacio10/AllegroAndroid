@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/degrade"
     android:orientation="vertical"
-    tools:context=".activityprofesores.fragmeteditarclases.editarClases">
+    tools:context=".ui.activityprofesores.fragmeteditarclases.editarClases">
 
     <ProgressBar
         android:id="@+id/progressBarEditarClases"
