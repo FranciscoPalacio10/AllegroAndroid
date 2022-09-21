@@ -32,20 +32,30 @@
         tools:layout="@layout/activity_reproductor_clase" />
     <fragment
         android:id="@+id/configuracion"
-        android:name="com.example.allegroandroid.ui.caractersticas.caracteristicas"
+        android:name="com.example.allegroandroid.ui.core.caractersticas.CaracteristicasFragment"
         android:label="fragment_caracteristicas"
-        tools:layout="@layout/fragment_caracteristicas" />
+        tools:layout="@layout/fragment_caracteristicas" >
+        <action
+            android:id="@+id/action_configuracion_to_socialFragment"
+            app:destination="@id/socialFragment" />
+        <action
+            android:id="@+id/action_configuracion_to_totalPointsFragment"
+            app:destination="@id/totalPointsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/fragmentHistorialDeClase"
         android:name="com.example.allegroandroid.ui.core.clases.historialdeclases.HistorialDeClasesFragment"
         android:label="fragment_clases"
-        tools:layout="@layout/fragment_clases" >
+        tools:layout="@layout/fragment_historial_de_clases" >
         <action
             android:id="@+id/action_clases_to_configuracion"
             app:destination="@id/configuracion" />
         <action
             android:id="@+id/action_fragmentHistorialDeClase_to_youtubeReproducerActivity"
             app:destination="@id/youtubeReproducerActivity" />
+        <action
+            android:id="@+id/action_fragmentHistorialDeClase_to_selectCamaraClasePracticaFragment"
+            app:destination="@id/selectCamaraClasePracticaFragment" />
     </fragment>
     <activity
         android:id="@+id/autenticacion"
@@ -127,6 +137,21 @@
             app:destination="@id/youtubeReproducerActivity" />
     </fragment>
 
+    <fragment
+        android:id="@+id/socialFragment"
+        android:name="com.example.allegroandroid.ui.core.caractersticas.social.SocialFragment"
+        android:label="fragment_social"
+        tools:layout="@layout/fragment_social" >
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/totalPointsFragment"
+        android:name="com.example.allegroandroid.ui.core.caractersticas.points.TotalPointsFragment"
+        android:label="fragment_total_points"
+        tools:layout="@layout/fragment_total_points" >
+
+    </fragment>
 
     <activity
         android:id="@+id/livePreviewActivity"

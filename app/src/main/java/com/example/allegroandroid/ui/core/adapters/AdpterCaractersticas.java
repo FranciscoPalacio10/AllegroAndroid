@@ -1,4 +1,4 @@
-package com.example.allegroandroid.ui.caractersticas;
+package com.example.allegroandroid.ui.core.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,10 +11,14 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.allegroandroid.R;
+import com.example.allegroandroid.models.CaracteristicasItems;
 import com.example.allegroandroid.ui.start.AuthenticationActivity;
+import com.example.allegroandroid.utils.AppExecutors;
+import com.example.allegroandroid.utils.AppModule;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -23,27 +27,30 @@ import com.google.firebase.auth.FirebaseAuth;
 import java.io.File;
 import java.util.ArrayList;
 
-public class adaptadorCaractersticas extends  RecyclerView.Adapter<adaptadorCaractersticas.caracterisitcasHolder> {
-    private ArrayList<caracteristicasItems> caracteristicasItemsArrayList;
+public class AdpterCaractersticas extends  RecyclerView.Adapter<AdpterCaractersticas.AdpterCaractersticasHolder> {
+    private ArrayList<CaracteristicasItems> caracteristicasItemsArrayList;
     private int resource;
     private Context context;
     private GoogleSignInClient googleSignInClient;
     private FragmentActivity fragmentActivity;
+    private AppModule appModule;
+    private final AppExecutors appExecutors;
 
-
-    public adaptadorCaractersticas(ArrayList<caracteristicasItems> arrayList, int reosurce, Context context, GoogleSignInClient mGoogleSignInClient, FragmentActivity activity) {
+    public AdpterCaractersticas(ArrayList<CaracteristicasItems> arrayList, int reosurce, Context context, GoogleSignInClient mGoogleSignInClient, FragmentActivity activity) {
         this.caracteristicasItemsArrayList=arrayList;
         this.resource=reosurce;
         this.context=context;
         this.googleSignInClient=mGoogleSignInClient;
         this.fragmentActivity=activity;
+        appModule = new AppModule(context);
+        appExecutors = new AppExecutors();
     }
 
-    class caracterisitcasHolder extends RecyclerView.ViewHolder{
+    class AdpterCaractersticasHolder extends RecyclerView.ViewHolder{
         ImageView icono;
         TextView item;
         ImageView siguiente;
-        public caracterisitcasHolder(@NonNull View v) {
+        public AdpterCaractersticasHolder(@NonNull View v) {
             super(v);
             icono=v.findViewById(R.id.imageCaracteristica);
             item=v.findViewById(R.id.txtItem);
@@ -51,39 +58,43 @@ public class adaptadorCaractersticas extends  RecyclerView.Adapter<adaptadorCara
     }
     @NonNull
     @Override
-    public caracterisitcasHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public AdpterCaractersticasHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(parent.getContext()).inflate(resource,parent,false);
-       adaptadorCaractersticas.caracterisitcasHolder caracterisitcasHolder= new  adaptadorCaractersticas.caracterisitcasHolder(view);
+       AdpterCaractersticasHolder caracterisitcasHolder= new AdpterCaractersticasHolder(view);
         return caracterisitcasHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull caracterisitcasHolder holder, int position) {
-        caracteristicasItems obtener= caracteristicasItemsArrayList.get(position);
+    public void onBindViewHolder(@NonNull AdpterCaractersticasHolder holder, int position) {
+        CaracteristicasItems obtener= caracteristicasItemsArrayList.get(position);
         holder.icono.setImageResource(obtener.getImagen());
         holder.item.setText(obtener.getNombre());
         mostrarOpciones(holder, obtener);
     }
 
-    private void mostrarOpciones(@NonNull caracterisitcasHolder holder, caracteristicasItems obtener) {
+    private void mostrarOpciones(@NonNull AdpterCaractersticasHolder holder, CaracteristicasItems obtener) {
         holder.icono.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                verOpciones(obtener);
+                showOnClickItems(obtener, v);
             }
         });
     }
 
-    private void verOpciones(caracteristicasItems obtener) {
+    private void showOnClickItems(CaracteristicasItems obtener, View v) {
         switch(obtener.getImagen()){
             case R.drawable.cerrarsesion:
+                appModule.cleanDb(appExecutors.diskIO());
                 signOut();
                 break;
             case R.drawable.social:
-                Toast.makeText(context,"Social",Toast.LENGTH_SHORT).show();
+                Navigation.findNavController(v).navigate(R.id.action_configuracion_to_socialFragment);
                 break;
-            case R.drawable.ic_phone_black_24dp:
-                Toast.makeText(context,"Contacto",Toast.LENGTH_SHORT).show();
+            case R.drawable.ic_stars_black_24dp:
+                Toast.makeText(context,"staff",Toast.LENGTH_SHORT).show();
+                break;
+            case R.drawable.ic_baseline_star_24:
+                Navigation.findNavController(v).navigate(R.id.action_configuracion_to_totalPointsFragment);
                 break;
 
     }
@@ -97,12 +108,12 @@ public class adaptadorCaractersticas extends  RecyclerView.Adapter<adaptadorCara
                     public void onComplete(@NonNull Task<Void> task) {
                         Toast.makeText(context,"Cerro sesión con éxito", Toast.LENGTH_LONG).show();
                         deleteCache(context);
-                        salir(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        closeApp(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     }
                 });
     }
 
-    private void salir(int i) {
+    private void closeApp(int i) {
         Intent intent = new Intent(context, AuthenticationActivity.class);
         intent.setFlags(i);
         context.startActivity(intent);
@@ -113,6 +124,7 @@ public class adaptadorCaractersticas extends  RecyclerView.Adapter<adaptadorCara
     }
 
     public static void deleteCache(Context context) {
+
         try {
             File dir = context.getCacheDir();
             deleteDir(dir);

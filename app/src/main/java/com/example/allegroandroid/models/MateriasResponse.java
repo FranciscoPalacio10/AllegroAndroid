@@ -8,7 +8,7 @@ public class MateriasResponse {
     @ColumnInfo(name = "materias_description")
     private String description;
     @ColumnInfo(name = "materias_usuario_id")
-    private String usuarioId;
+    private String userId;
     @ColumnInfo(name = "materias_date_created")
     private String dateCreated;
     @ColumnInfo(name = "materias_date_modief")
@@ -33,9 +33,7 @@ public class MateriasResponse {
         return description;
     }
 
-    public String getUsuarioId() {
-        return usuarioId;
-    }
+
 
     public String getDateCreated() {
         return dateCreated;
@@ -57,6 +55,15 @@ public class MateriasResponse {
         return hours;
     }
 
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+
     public float getCursosId() {
         return cursosId;
     }
@@ -71,9 +78,6 @@ public class MateriasResponse {
         this.description = description;
     }
 
-    public void setUsuarioId(String usuarioId) {
-        this.usuarioId = usuarioId;
-    }
 
     public void setDateCreated(String dateCreated) {
         this.dateCreated = dateCreated;

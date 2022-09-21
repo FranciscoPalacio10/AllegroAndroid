@@ -53,7 +53,7 @@ public class AdapterClasesNoFinalizadas extends RecyclerView.Adapter<AdapterClas
     }
 
     class AdaptadorClases extends RecyclerView.ViewHolder {
-        TextView txtClase, txtMateria, txtProfesora, txtNroClase, txtFecha, txtTiempo;
+        TextView txtClase, txtMateria, txtTipoDeClaseEnCurso, txtNroClase, txtFecha, txtTiempo, txtTiempoTotal;
         Button btnContinuarClase;
         ImageButton btndescargar;
 
@@ -61,10 +61,11 @@ public class AdapterClasesNoFinalizadas extends RecyclerView.Adapter<AdapterClas
             super(v);
             txtClase = v.findViewById(R.id.txtClaseNoFinalizada);
             txtMateria = v.findViewById(R.id.txtMateriaNoFinalizada);
-            //  txtProfesora = v.findViewById(R.id.txtProfesoraEnCurso);
+            txtTipoDeClaseEnCurso = v.findViewById(R.id.txtTipoDeClaseEnCurso);
             txtNroClase = v.findViewById(R.id.txtNroClaseEnCurso);
             txtFecha = v.findViewById(R.id.txtFechaEnCurso);
             txtTiempo = v.findViewById(R.id.txtTiempoEnCurso);
+            txtTiempoTotal = v.findViewById(R.id.txtTiempoTotal);
             btnContinuarClase = v.findViewById(R.id.btnContinuarClase);
             btndescargar = v.findViewById(R.id.btnDescargarClase);
         }
@@ -87,6 +88,8 @@ public class AdapterClasesNoFinalizadas extends RecyclerView.Adapter<AdapterClas
         holder.txtNroClase.setText(historialDeClaseResponse.clase.claseId.toString());
         holder.txtFecha.setText(dateService.convertStringToDateString(historialDeClaseResponse.dateModief));
         holder.txtTiempo.setText(dateService.convertSecondsToMinutes(historialDeClaseResponse.timeLeaveVideo));
+        holder.txtTiempoTotal.setText(dateService.convertSecondsToMinutes(historialDeClaseResponse.timeTotalVideo));
+        holder.txtTipoDeClaseEnCurso.setText(historialDeClaseResponse.clase.tipo);
 
         String titulo = historialDeClaseResponse.clase.name.concat(" ").concat("numero ").concat(historialDeClaseResponse.clase.claseId.toString());
 
@@ -100,8 +103,7 @@ public class AdapterClasesNoFinalizadas extends RecyclerView.Adapter<AdapterClas
                     bundle.putString(AppConstant.HISTORIAL_DE_CLASE_RESPONSE, jsonStr);
                     Navigation.findNavController(v).navigate(R.id.action_fragmentHistorialDeClase_to_youtubeReproducerActivity, bundle);
                 } else {
-                    bundle.putString(ConstantPoseToEvalute.POSE_SELECTED, historialDeClaseResponse.clase.name);
-                    //    Navigation.findNavController(v).navigate(R.id.action_fragmentHistorialDeClase_to_youtubeReproducerActivity, bundle);
+                    Navigation.findNavController(v).navigate(R.id.action_fragmentHistorialDeClase_to_selectCamaraClasePracticaFragment, bundle);
                 }
             }
         });
@@ -132,7 +134,6 @@ public class AdapterClasesNoFinalizadas extends RecyclerView.Adapter<AdapterClas
 
 
     }
-
 
 
     private void descargarClase(ClaseResponse clase, String titulo) {

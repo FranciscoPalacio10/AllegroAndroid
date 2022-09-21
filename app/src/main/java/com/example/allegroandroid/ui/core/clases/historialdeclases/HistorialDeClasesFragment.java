@@ -11,7 +11,6 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.Navigation;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
@@ -92,7 +91,7 @@ public class HistorialDeClasesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v= inflater.inflate(R.layout.fragment_clases, container, false);
+        View v= inflater.inflate(R.layout.fragment_historial_de_clases, container, false);
 
         initAdapter(v);;
 
@@ -103,6 +102,7 @@ public class HistorialDeClasesFragment extends Fragment {
         HistorialDeClasesPagerAdapter sectionsPagerAdapter = new HistorialDeClasesPagerAdapter(getChildFragmentManager(),getContext(), arrayListResource );
         ViewPager viewPager = v.findViewById(R.id.view_pager3);
         viewPager.setAdapter(sectionsPagerAdapter);
+        viewPager.setSaveEnabled(false);
         TabLayout tabs = v.findViewById(R.id.tabs1);
         tabs.setupWithViewPager(viewPager);
         tabs.setSelectedTabIndicatorColor(Color.MAGENTA);

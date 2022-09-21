@@ -38,7 +38,7 @@ public abstract class AbstractCustomPlayerUiController extends AbstractYouTubePl
     protected YouTubePlayer youTubePlayer;
     protected YouTubePlayerView youTubePlayerView;
     protected SeekBar progessVideo;
-    protected ImageButton btnPlay, btnPause, btnRestartVideo, btnExpandView, btnReduceView, btn_back;
+    protected ImageButton btnPlay, btnPause, btnRestartVideo, btnExpandView, btnReduceView, btnBack, btnRewFiveSeconds,  btnAddFiveSeconds;
 
     // panel is used to intercept clicks on the WebView, I don't want the user to be able to click the WebView directly.
     protected View panel;

@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.allegroandroid.R;
 import com.example.allegroandroid.constants.AppConstant;
+import com.example.allegroandroid.ia.posedetector.ConstantPoseToEvalute;
 import com.example.allegroandroid.models.historialdeclase.HistorialDeClaseResponse;
 import com.example.allegroandroid.services.DateService;
 import com.google.gson.Gson;
@@ -38,16 +39,17 @@ public class AdapterClasesFinalizadas extends RecyclerView.Adapter<AdapterClases
     }
 
     class adaptadorClasesF extends RecyclerView.ViewHolder {
-        TextView txtClaseName, txtMateriaName, txtProfesora, txtNroClase, txtFecha;
+        TextView txtClaseName, txtMateriaName, txtTipoDeClaseFinalizada, txtNroClase, txtFecha;
         Button btnRepetirClase;
 
         public adaptadorClasesF(@NonNull View v) {
             super(v);
             txtClaseName = v.findViewById(R.id.txtClaseFinalizada);
             txtMateriaName = v.findViewById(R.id.txtMateriaFinalizada);
-            txtNroClase = v.findViewById(R.id.txtNroClaseFinalizado);
+            txtNroClase = v.findViewById(R.id.txtNroDeClaseFinalizada);
             txtFecha = v.findViewById(R.id.txtFechaFinalizado);
             btnRepetirClase = v.findViewById(R.id.btnRepetirClase);
+            txtTipoDeClaseFinalizada= v.findViewById(R.id.txtTipoDeClaseFinalizada);
         }
     }
 
@@ -66,6 +68,7 @@ public class AdapterClasesFinalizadas extends RecyclerView.Adapter<AdapterClases
         holder.txtMateriaName.setText(historialDeClaseResponse.clase.materia.getName());
         holder.txtNroClase.setText(historialDeClaseResponse.clase.claseId.toString());
         holder.txtFecha.setText(dateService.convertStringToDateString(historialDeClaseResponse.dateModief));
+        holder.txtTipoDeClaseFinalizada.setText(historialDeClaseResponse.clase.tipo);
         holder.btnRepetirClase.setOnClickListener(new View.OnClickListener() {
             Bundle bundle = new Bundle();
             Gson gson = new Gson();
@@ -74,7 +77,11 @@ public class AdapterClasesFinalizadas extends RecyclerView.Adapter<AdapterClases
                 historialDeClaseResponse.timeLeaveVideo = 0;
                 String jsonStr = gson.toJson(historialDeClaseResponse);
                 bundle.putString(AppConstant.HISTORIAL_DE_CLASE_RESPONSE, jsonStr);
-                Navigation.findNavController(v).navigate(R.id.action_fragmentHistorialDeClase_to_youtubeReproducerActivity, bundle);
+                if (historialDeClaseResponse.clase.tipo.toLowerCase().equals(AppConstant.VIDEO.toLowerCase())) {
+                    Navigation.findNavController(v).navigate(R.id.action_fragmentHistorialDeClase_to_youtubeReproducerActivity, bundle);
+                } else {
+                    Navigation.findNavController(v).navigate(R.id.action_fragmentHistorialDeClase_to_selectCamaraClasePracticaFragment, bundle);
+                }
             }
         });
     }

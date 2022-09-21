@@ -27,6 +27,7 @@ import com.google.gson.Gson;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 
 
 public class AdapterClases extends RecyclerView.Adapter<AdapterClases.ViewHolderClases> {
@@ -34,22 +35,25 @@ public class AdapterClases extends RecyclerView.Adapter<AdapterClases.ViewHolder
     Context context;
     private User user;
     private ArrayList<ClaseResponse> claseResponseList;
+    private DateService dateService;
 
     public AdapterClases(ArrayList<ClaseResponse> claseResponseList, int resource, Context context, User user) {
         this.claseResponseList = claseResponseList;
         this.resource = resource;
         this.context = context;
+        dateService = DateService.getInstance();
         this.user = user;
     }
 
     class ViewHolderClases extends RecyclerView.ViewHolder {
-        private TextView txtNroClase;
+        private TextView txtNroClase, txtClaseDateCreated;
         private TextView txtNameClase;
         private Button btnInciarClase;
         public ViewHolderClases(@NonNull View v) {
             super(v);
             txtNroClase = v.findViewById(R.id.txtNroClase);
             txtNameClase = v.findViewById(R.id.txtNameClase);
+            txtClaseDateCreated = v.findViewById(R.id.txtClaseDateCreated);
             btnInciarClase = v.findViewById(R.id.btnInciarClase);
         }
     }
@@ -68,6 +72,7 @@ public class AdapterClases extends RecyclerView.Adapter<AdapterClases.ViewHolder
 
         holder.txtNroClase.setText(claseResponse.claseId.toString());
         holder.txtNameClase.setText(claseResponse.name);
+        holder.txtClaseDateCreated.setText(dateService.convertStringToDateString(claseResponse.dateCreated));
         holder.btnInciarClase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -6,8 +6,8 @@
     android:padding="10dp"
     android:layout_marginBottom="5dp"
     app:cardCornerRadius="20dp"
-    android:layout_marginLeft="40dp"
-    android:layout_marginRight="40dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
     app:cardElevation="10dp"
     app:cardBackgroundColor="@color/azulAllegro"
     android:layout_height="wrap_content">
@@ -27,7 +27,7 @@
             android:layout_weight="1"
             android:textAlignment="center"
             android:textColor="@color/negro"
-            android:textSize="18sp"
+            android:textSize="18dp"
             android:textStyle="bold" />
 
         <View
@@ -37,11 +37,10 @@
             android:layout_marginTop="1dp"
             android:layout_weight="1"
             android:background="@color/blanco" />
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="28dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="5dp"
             android:layout_weight="1"
             android:orientation="horizontal">
@@ -50,22 +49,22 @@
                 android:id="@+id/textView11"
                 style="@style/txtClaseEnCurso"
                 android:text="@string/materia"
-                android:textSize="12dp" />
-
+                android:textSize="10dp" />
             <TextView
                 android:id="@+id/txtMateriaFinalizada"
                 style="@style/txtClaseEnCurso"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="5dp"
                 android:textColor="@color/negro"
-                android:textSize="12dp"
-                 />
+                android:textSize="10dp"
+                />
         </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
             android:layout_weight="1"
             android:orientation="horizontal">
 
@@ -73,25 +72,49 @@
                 android:id="@+id/textView7"
                 style="@style/txtClaseEnCurso"
                 android:text="@string/claseNro"
-                android:layout_marginLeft="5dp"
-                android:textColor="@color/negro"
-                android:textSize="12dp"
+                android:textSize="10dp"
                 />
 
             <TextView
-                android:id="@+id/txtNroClaseFinalizado"
+                android:id="@+id/txtNroDeClaseFinalizada"
                 style="@style/txtClaseEnCurso"
-                android:layout_marginLeft="10dp"
-                android:textSize="12dp"
-               />
+                android:layout_marginLeft="5dp"
+                android:textSize="10dp"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView8"
+                style="@style/txtClaseEnCurso"
+                android:text="@string/tipodeclase"
+                android:layout_marginLeft="4dp"
+                android:textSize="10dp"
+                />
+
+            <TextView
+                android:id="@+id/txtTipoDeClaseFinalizada"
+                style="@style/txtClaseEnCurso"
+                android:layout_marginLeft="5dp"
+                android:textSize="10dp"
+                />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
             android:layout_weight="1"
             android:orientation="horizontal">
 
@@ -99,16 +122,17 @@
             <TextView
                 android:id="@+id/textView9"
                 style="@style/txtClaseEnCurso"
+                android:textSize="10dp"
                 android:text="@string/fechaFinalada"
-                android:textSize="12dp"
+
                 />
 
             <TextView
                 android:id="@+id/txtFechaFinalizado"
                 style="@style/txtClaseEnCurso"
-                android:layout_marginLeft="2dp"
-                android:textSize="12dp"
-              />
+                android:layout_marginLeft="5dp"
+                android:textSize="10dp"
+                />
         </LinearLayout>
 
         <Button
@@ -117,9 +141,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="4dp"
-            android:layout_marginBottom="1dp"
+            android:textSize="10dp"
             android:background="@color/transeparente"
-            android:drawableRight="@drawable/exo_controls_repeat_one"
             android:drawablePadding="2dp"
             android:text="@string/repetirClase"
             android:textColor="@color/blanco"

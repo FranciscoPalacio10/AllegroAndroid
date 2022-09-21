@@ -55,9 +55,9 @@ public class HistorialDeClaseRepository {
             protected void saveInLocalStore(HistorialDeClaseResponse item) {
                 List<HistorialDeClaseResponse> historialDeClasesResponse = provideDb.allowMainThreadQueries().build().historialDeClasesDao()
                         .findByUserId(item.userIdHistorialDeClase);
-                if (historialDeClasesResponse != null){
+                if (!historialDeClasesResponse.isEmpty()) {
                     item.dateUpdate = DateService.getInstance().getDateNow();
-                    provideDb.build().historialDeClasesDao().update(item);
+                    provideDb.build().historialDeClasesDao().insert(item);
                 }
             }
 
@@ -94,7 +94,7 @@ public class HistorialDeClaseRepository {
             protected void saveInLocalStore(HistorialDeClaseResponse item) {
                 List<HistorialDeClaseResponse> historialDeClasesResponse = provideDb.allowMainThreadQueries().build().historialDeClasesDao()
                         .findByUserId(item.userIdHistorialDeClase);
-                if (historialDeClasesResponse != null){
+                if (!historialDeClasesResponse.isEmpty()) {
                     item.dateUpdate = DateService.getInstance().getDateNow();
                     provideDb.build().historialDeClasesDao().update(item);
                 }
@@ -127,7 +127,7 @@ public class HistorialDeClaseRepository {
                         .findByUserId(historialDeClaseGet.user.id);
                 if (historialDeClasesResponse != null && !historialDeClasesResponse.isEmpty()) {
                     if (!DateService.getInstance().isPassedNHoursFromLastTimeRequested(historialDeClasesResponse.get(0).dateUpdate, 1)
-                    && historialDeClasesResponse.get(0).clase.materia != null) {
+                            && historialDeClasesResponse.get(0).clase.materia != null) {
                         return (ArrayList<HistorialDeClaseResponse>) historialDeClasesResponse;
                     }
                 }
@@ -140,7 +140,6 @@ public class HistorialDeClaseRepository {
                 items.forEach(x -> {
                     x.dateUpdate = DateService.getInstance().getDateNow();
                 });
-
                 provideDb.build().historialDeClasesDao().insertAll(items);
             }
 

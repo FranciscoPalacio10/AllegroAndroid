@@ -41,6 +41,8 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
+import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
 
 public class AuthenticationActivity extends AppCompatActivity {
     private String TAG = "autenticacion";
@@ -53,6 +55,8 @@ public class AuthenticationActivity extends AppCompatActivity {
     AppExecutors appExecutors;
     AppModule appModule;
     ProgressDialog progress;
+    FirebaseRemoteConfig mFirebaseRemoteConfig;
+    FirebaseRemoteConfigSettings firebaseRemoteConfigSettings;
 
     @Override
     public void onBackPressed() {
@@ -75,10 +79,7 @@ public class AuthenticationActivity extends AppCompatActivity {
             finish();
         }
         popUpService = PopUpService.getPopUpService();
-        appExecutors = new AppExecutors();
-        appModule = new AppModule(getApplicationContext());
-        tokenViewModelNew = ViewModelProviders.of(this, new MyViewModelFactory<>(getApplication(),
-                new TokenRepository(appExecutors, appModule.provideTokenRetrofit()))).get(TokenViewModelNew.class);
+
 
         signInButton = findViewById(R.id.iniciarsesion);
         setGooglePlusButtonText(signInButton, "INGRESAR CON GOOGLE");
@@ -91,14 +92,34 @@ public class AuthenticationActivity extends AppCompatActivity {
             }
         });
 
+        mFirebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
+        firebaseRemoteConfigSettings = new FirebaseRemoteConfigSettings.Builder()
+                .setMinimumFetchIntervalInSeconds(3600)
+                .build();
+        mFirebaseRemoteConfig.setConfigSettingsAsync(firebaseRemoteConfigSettings);
+
+
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        progressDialog = ProgressDialog.show(this, "Cargando...", "Iniciando Session", true);
-        updateUI(fireBaseLoginService.getCurrentUser());
-        progressDialog.dismiss();
+        mFirebaseRemoteConfig.fetchAndActivate()
+                .addOnCompleteListener(this, new OnCompleteListener<Boolean>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Boolean> task) {
+                        if (task.isSuccessful()) {
+                            boolean updated = task.getResult();
+                            AppConstant.BASE_URL_USER = mFirebaseRemoteConfig.getString("url_user");
+                            Log.i(TAG, mFirebaseRemoteConfig.getString("url_user"));
+                            AppConstant.BASE_URL_PLAN_STUDIO = mFirebaseRemoteConfig.getString("url_plan_studio");
+                            updateUI(fireBaseLoginService.getCurrentUser());
+                        } else {
+                            ActivitiesInitiator.initErrorActivity(new InitActitvy(getApplicationContext(), getBundle(task.getException().getMessage())));
+                        }
+
+                    }
+                });
     }
 
     private void signIn() {
@@ -158,6 +179,10 @@ public class AuthenticationActivity extends AppCompatActivity {
         try {
             Log.e(TAG, "updateUi");
             if (account != null && !onNetworkChange()) {
+                appExecutors = new AppExecutors();
+                appModule = new AppModule(getApplicationContext());
+                tokenViewModelNew = ViewModelProviders.of(this, new MyViewModelFactory<>(getApplication(),
+                        new TokenRepository(appExecutors, appModule.provideTokenRetrofit()))).get(TokenViewModelNew.class);
                 getTokenFromApi(account.getEmail());
             }
         } catch (Exception e) {
@@ -206,21 +231,3 @@ public class AuthenticationActivity extends AppCompatActivity {
         return pBundle;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

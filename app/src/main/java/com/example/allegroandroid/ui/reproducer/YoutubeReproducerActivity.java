@@ -2,13 +2,13 @@ package com.example.allegroandroid.ui.reproducer;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,8 +20,10 @@ import com.example.allegroandroid.R;
 import com.example.allegroandroid.constants.AppConstant;
 import com.example.allegroandroid.models.historialdeclase.HistorialDeClaseRequest;
 import com.example.allegroandroid.models.historialdeclase.HistorialDeClaseResponse;
+import com.example.allegroandroid.models.pointsxuser.PointXUserRequest;
+import com.example.allegroandroid.models.pointsxuser.PointXUserResponse;
 import com.example.allegroandroid.repository.HistorialDeClaseRepository;
-import com.example.allegroandroid.repository.UserRepository;
+import com.example.allegroandroid.repository.PointXUserRepository;
 import com.example.allegroandroid.repository.resource.Resource;
 import com.example.allegroandroid.repository.resource.Status;
 import com.example.allegroandroid.services.FireBaseLoginService;
@@ -31,6 +33,7 @@ import com.example.allegroandroid.ui.MyViewModelFactory;
 import com.example.allegroandroid.utils.AppExecutors;
 import com.example.allegroandroid.utils.AppModule;
 import com.example.allegroandroid.viewmodel.HistorialDeClasesViewModel;
+import com.example.allegroandroid.viewmodel.PointXUserViewModel;
 import com.google.firebase.database.annotations.NotNull;
 import com.google.gson.Gson;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
@@ -44,15 +47,15 @@ public class YoutubeReproducerActivity extends AppCompatActivity {
     private YouTubePlayerView youTubePlayerView;
     private YouTubePlayerListener listener;
     private CustomPlayerUiController customPlayerUiController;
-    private HistorialDeClaseRepository historialDeClaseRepository;
-    private FireBaseLoginService fireBaseLoginService;
+
     private HistorialDeClaseResponse historialDeClaseResponse;
     private Activity activity;
     private HistorialDeClasesViewModel historialDeClasesViewModel;
-
-    AppExecutors appExecutors;
-    AppModule appModule;
-    UserRepository userRepository;
+    private AppExecutors appExecutors;
+    private AppModule appModule;
+    private FireBaseLoginService fireBaseLoginService;
+    private PointXUserViewModel pointXUserViewModel;
+    private ProgressDialog progress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,22 +69,26 @@ public class YoutubeReproducerActivity extends AppCompatActivity {
     public View onCreateView(@Nullable View parent, @NonNull String name, @NonNull Context context, @NonNull AttributeSet attrs) {
         return super.onCreateView(parent, name, context, attrs);
 
-
     }
 
     private void init() {
+        progress = new ProgressDialog(this);
+        progress.setTitle("Loading");
+        progress.setMessage("Espera unos segundos...");
+        progress.setCancelable(false); // disable dismiss by tapping outside of the dialog
+        progress.show();
         HistorialDeClaseResponse historialDeClaseResponse = getExtras(AppConstant.HISTORIAL_DE_CLASE_RESPONSE);
         this.historialDeClaseResponse = historialDeClaseResponse;
         this.activity = this;
-        initHistorialClaseService();
+        initViewModelService();
         initYoutbePlayer(historialDeClaseResponse);
         postHistorial();
         hideSystemUi();
     }
 
     private void postHistorial() {
-        historialDeClasesViewModel.setHistorialClaseRequestPost(new HistorialDeClaseRequest(false, historialDeClaseResponse.clase.claseId, 0,
-                0));
+        historialDeClasesViewModel.setHistorialClaseRequestPost(new HistorialDeClaseRequest(false, historialDeClaseResponse.clase.claseId, 1,
+                1, 0));
         historialDeClasesViewModel.postHistorialDeClases(fireBaseLoginService.getCurrentUser().getEmail()).observe(this, new Observer<Resource<HistorialDeClaseResponse>>() {
             @Override
             public void onChanged(Resource<HistorialDeClaseResponse> historialDeClaseResponseResource) {
@@ -92,23 +99,27 @@ public class YoutubeReproducerActivity extends AppCompatActivity {
         });
     }
 
-    private void initHistorialClaseService() {
+    private void initViewModelService() {
         appExecutors = new AppExecutors();
         appModule = new AppModule(getApplicationContext());
 
         fireBaseLoginService = new FireBaseLoginService(getString(R.string.default_web_client_id), this);
-
-        historialDeClaseRepository = new HistorialDeClaseRepository(appExecutors, appModule.provideHistorialDeClaseRetrofit(), appModule.provideDb(),
-                new SessionService(getApplicationContext()));
-
-        userRepository = new UserRepository(appExecutors, appModule.provideUserRetrofit(), appModule.provideDb(),
-                new SessionService(getApplicationContext()));
 
         historialDeClasesViewModel = ViewModelProviders.of(this, new MyViewModelFactory<>(getApplication(),
                 new HistorialDeClaseRepository(appExecutors, appModule.provideHistorialDeClaseRetrofit(), appModule.provideDb(),
                         new SessionService(this)
                 )))
                 .get(HistorialDeClasesViewModel.class);
+
+        pointXUserViewModel = ViewModelProviders.of(this, new MyViewModelFactory<>(getApplication(),
+                new PointXUserRepository(appExecutors, appModule.providePointsXUserRetrofit(), appModule.provideDb(),
+                        new SessionService(this)
+                )))
+                .get(PointXUserViewModel.class);
+    }
+
+    private void postPointXUser(int historialDeClaseId){
+        pointXUserViewModel.setHistorialPointXUserRequest(new PointXUserRequest(historialDeClaseId,0));
     }
 
     private void initYoutbePlayer(HistorialDeClaseResponse historialDeClaseResponse) {
@@ -119,6 +130,7 @@ public class YoutubeReproducerActivity extends AppCompatActivity {
         listener = new AbstractYouTubePlayerListener() {
             @Override
             public void onReady(@NonNull YouTubePlayer youTubePlayer) {
+                progress.dismiss();
                 customPlayerUiController = new CustomPlayerUiController(YoutubeReproducerActivity.this, customPlayerUi, youTubePlayer,
                         youTubePlayerView, activity);
                 youTubePlayer.addListener(customPlayerUiController);
@@ -133,6 +145,7 @@ public class YoutubeReproducerActivity extends AppCompatActivity {
         youTubePlayerView.initialize(listener, options);
 
     }
+
 
     private HistorialDeClaseResponse getExtras(String key) {
         String historialClaseString = getIntent().getExtras().getString(key);
@@ -154,7 +167,7 @@ public class YoutubeReproducerActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        updateHistorial();
+        updateHistorialAndPointsXUser();
     }
 
     @Override
@@ -181,16 +194,17 @@ public class YoutubeReproducerActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
-    private void updateHistorial() {
+    private void updateHistorialAndPointsXUser() {
         historialDeClasesViewModel.setHistorialClaseRequestPost(new HistorialDeClaseRequest(false,
                 historialDeClaseResponse.claseId, customPlayerUiController.getTotalVideoSeconds().intValue(),
-                customPlayerUiController.getCurrentSecond().intValue()));
+                customPlayerUiController.getCurrentSecond().intValue(), 0));
         historialDeClasesViewModel.putHistorialDeClases(fireBaseLoginService.getCurrentUser().getEmail(),
                 historialDeClaseResponse.historialDeClaseId).observe(this, new Observer<Resource<HistorialDeClaseResponse>>() {
             @Override
             public void onChanged(Resource<HistorialDeClaseResponse> historialDeClaseResponseResource) {
                 if (historialDeClaseResponseResource.status == Status.SUCCESS) {
                     historialDeClaseResponse = historialDeClaseResponseResource.data;
+                    postPointXUser(historialDeClaseResponseResource.data.historialDeClaseId);
                 }
             }
         });

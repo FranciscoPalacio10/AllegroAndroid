@@ -80,7 +80,10 @@ public class PoseGraphic extends GraphicOverlay.Graphic {
     private final GraphicOverlay graphicOverlay;
     private final Speaker speaker;
     private InitActitvy initActitvy;
+
+
     private HistorialDeClaseResponse historialDeClaseResponse;
+
     PoseGraphic(
             Context context,
             GraphicOverlay overlay,
@@ -103,10 +106,9 @@ public class PoseGraphic extends GraphicOverlay.Graphic {
         this.graphicOverlay = overlay;
         this.speaker = speaker;
 
-
         if (speaker != null) {
-            speaker.speakStart("Evaluaremos la "+ historialDeClaseResponse.clase.name +", recuerda que debes permanecer"+
-                    secondsToEvaluate.toString() +"segundos para pasar la prueba");
+            speaker.speakStart("Evaluaremos la " + historialDeClaseResponse.clase.name + ", recuerda que debes permanecer" +
+                    secondsToEvaluate.toString() + "segundos para pasar la prueba");
         }
 
         classificationTextPaint = new Paint();
@@ -144,6 +146,7 @@ public class PoseGraphic extends GraphicOverlay.Graphic {
         backgroundCuadrado.setStrokeWidth(10);
         backgroundCuadrado.setStyle(Paint.Style.FILL);
     }
+
 
     //dibuja en pantalla los resultados
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -220,12 +223,14 @@ public class PoseGraphic extends GraphicOverlay.Graphic {
         }
 
         if (speaker != null) {
-            ISuggerence suggerence = FactorySugerences.getSuggerence(historialDeClaseResponse.clase.name, graphicOverlay);
-            String suggest = suggerence.getSuggerence(context, bodyLandMark);
+            ISuggerence suggerence = FactorySugerences.getPoseToGetSuggerence(historialDeClaseResponse.clase.name, graphicOverlay);
+            if (suggerence != null) {
+                String suggest = suggerence.getSuggerence(context, bodyLandMark);
 
-            if (suggest != "") {
-                showSuggest(canvas, suggest);
-                return;
+                if (suggest != "") {
+                    showSuggest(canvas, suggest);
+                    return;
+                }
             }
         }
 
@@ -279,16 +284,17 @@ public class PoseGraphic extends GraphicOverlay.Graphic {
 
     @NonNull
     private PoseEvaluatedResult processPoseToEvaluate(Canvas canvas, BodyLandMark bodyLandMark, ResultPoseClasifier resultPoseClasifier) {
+        counterSecondsInTheSamePosition(canvas, bodyLandMark, resultPoseClasifier);
+
         if (!resultPoseClasifier.pose.toLowerCase().contains(historialDeClaseResponse.clase.name.toLowerCase())) {
             return new PoseEvaluatedResult(1, "MAL", Color.RED, Color.WHITE);
-        } else {
-            if (resultPoseClasifier.pose.toLowerCase().contains("mal")) {
-                return new PoseEvaluatedResult(1, "MAL", Color.RED, Color.WHITE);
-            } else {
-                counterSecondsInTheSamePosition(canvas, bodyLandMark, resultPoseClasifier);
-                return new  PoseEvaluatedResult(1, "MAL", Color.GREEN, Color.BLACK);
-            }
         }
+
+        if (resultPoseClasifier.pose.toUpperCase(Locale.ROOT).contains("MAL")) {
+            return new PoseEvaluatedResult(resultPoseClasifier.confidence, "MAL", Color.RED, Color.WHITE);
+        }
+
+        return new PoseEvaluatedResult(resultPoseClasifier.confidence, "BIEN", Color.GREEN, Color.BLACK);
     }
 
     private void openResultActivity(Bundle pBundle) {
@@ -297,8 +303,8 @@ public class PoseGraphic extends GraphicOverlay.Graphic {
     }
 
     private boolean isCompleteSecondsToEvaluate(ResultPoseClasifier resultPoseClasifier) {
-        if(resultPoseClasifier.counter != null){
-            return  resultPoseClasifier.counter.GetSecondsLast() == secondsToEvaluate.longValue();
+        if (resultPoseClasifier.counter != null) {
+            return resultPoseClasifier.counter.GetSecondsLast() == secondsToEvaluate.longValue();
         }
         return false;
     }

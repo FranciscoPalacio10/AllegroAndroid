@@ -69,7 +69,7 @@ public class Speaker implements TextToSpeech.OnInitListener {
                     isStart = true;
                     try {
                         // le damos tiempo de terminar de hablar antes de iniciar con la evaluacion
-                        Thread.sleep(5000);
+                        Thread.sleep(2500);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }

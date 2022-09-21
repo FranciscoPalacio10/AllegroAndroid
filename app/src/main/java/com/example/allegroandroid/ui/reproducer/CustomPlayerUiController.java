@@ -1,8 +1,6 @@
 package com.example.allegroandroid.ui.reproducer;
 
 
-import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
@@ -11,7 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 
 import android.content.pm.ActivityInfo;
-import android.os.Build;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,12 +49,14 @@ class CustomPlayerUiController extends AbstractCustomPlayerUiController implemen
         btnRestartVideo = playerUi.findViewById(R.id.btnRestartVideo);
         btnPlay = playerUi.findViewById(R.id.btnPlay);
         btnPause = playerUi.findViewById(R.id.btnPause);
-        btn_back = playerUi.findViewById(R.id.btn_back);
+        btnBack = playerUi.findViewById(R.id.btn_back);
         btnReduceView = playerUi.findViewById(R.id.btnReduceView);
         btnExpandView = playerUi.findViewById(R.id.btnExpandView);
         layoutControllers = playerUi.findViewById(R.id.layoutControllers);
         layoutProgessiveBar = playerUi.findViewById(R.id.layoutProgessVideo);
         layoutTop = playerUi.findViewById(R.id.layoutTop);
+        btnRewFiveSeconds = playerUi.findViewById(R.id.exo_rew);
+        btnAddFiveSeconds = playerUi.findViewById(R.id.exo_ffwd);
 
         btnListeners();
         goneElements();
@@ -65,7 +64,7 @@ class CustomPlayerUiController extends AbstractCustomPlayerUiController implemen
     }
 
     private void btnListeners() {
-        btn_back.setOnClickListener((view) -> {
+        btnBack.setOnClickListener((view) -> {
             activity.onBackPressed();
         });
 
@@ -87,6 +86,14 @@ class CustomPlayerUiController extends AbstractCustomPlayerUiController implemen
 
         btnPause.setOnClickListener((view) -> {
             youTubePlayer.pause();
+        });
+
+        btnRewFiveSeconds.setOnClickListener(view -> {
+            youTubePlayer.seekTo(getCurrentSecond() - 5);
+        });
+
+        btnAddFiveSeconds.setOnClickListener(view -> {
+            youTubePlayer.seekTo(getCurrentSecond() + 5);
         });
 
         panel.setOnClickListener(view -> {
@@ -171,7 +178,7 @@ class CustomPlayerUiController extends AbstractCustomPlayerUiController implemen
     @SuppressLint("SetTextI18n")
     @Override
     public void onCurrentSecond(@NonNull YouTubePlayer youTubePlayer, float second) {
-        txtTimeNowVideo.setText(DateService.convertSecondsToMinutes((long) second));
+        txtTimeNowVideo.setText(dateService.convertSecondsToMinutes((long) second));
         progessVideo.setProgress((int) second);
         setCurrentSecond(second);
         hiddenButtonAfterSeconds(6);

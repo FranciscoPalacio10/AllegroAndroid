@@ -66,10 +66,6 @@
         android:paddingTop="4dp">
 
         <ImageButton
-            android:id="@id/btnPrev"
-            style="@style/ExoMediaButton.Previous" />
-
-        <ImageButton
             android:id="@id/exo_rew"
             style="@style/ExoMediaButton.Rewind" />
 

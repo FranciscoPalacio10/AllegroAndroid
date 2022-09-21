@@ -18,8 +18,8 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class HistorialDeClasesViewModel extends ViewModel {
-    final MutableLiveData<HistorialDeClaseRequest> historialDeClaseRequest;
-    final MutableLiveData<HistorialDeClaseRequestGet> historialDeClaseRequestGet;
+    private MutableLiveData<HistorialDeClaseRequest> historialDeClaseRequest;
+    private MutableLiveData<HistorialDeClaseRequestGet> historialDeClaseRequestGet;
     private HistorialDeClaseRepository historialDeClaseRepository;
     private Context context;
 

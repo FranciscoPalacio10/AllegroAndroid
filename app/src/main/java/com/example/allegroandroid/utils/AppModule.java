@@ -9,8 +9,11 @@ import com.example.allegroandroid.constants.AppConstant;
 import com.example.allegroandroid.localdb.AllegroLocalDb;
 import com.example.allegroandroid.webservices.clases.ApiRequestClases;
 import com.example.allegroandroid.webservices.historialdeclases.ApiRequestHistorialDeClases;
+import com.example.allegroandroid.webservices.pointxuser.ApiRequestPointXUser;
 import com.example.allegroandroid.webservices.token.ApiRequestToken;
 import com.example.allegroandroid.webservices.user.allegroback.ApiRequestUser;
+
+import java.util.concurrent.Executor;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -42,7 +45,7 @@ public class AppModule {
 
     public ApiRequestClases provideClaseRetrofit() {
         return new Retrofit.Builder()
-                .baseUrl(AppConstant.BASE_URL_CLASE)
+                .baseUrl(AppConstant.BASE_URL_PLAN_STUDIO)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
                 .create(ApiRequestClases.class);
@@ -51,12 +54,19 @@ public class AppModule {
 
     public ApiRequestHistorialDeClases provideHistorialDeClaseRetrofit() {
         return new Retrofit.Builder()
-                .baseUrl(AppConstant.BASE_URL_CLASE)
+                .baseUrl(AppConstant.BASE_URL_PLAN_STUDIO)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
                 .create(ApiRequestHistorialDeClases.class);
     }
 
+    public ApiRequestPointXUser providePointsXUserRetrofit() {
+        return new Retrofit.Builder()
+                .baseUrl(AppConstant.BASE_URL_PLAN_STUDIO)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+                .create(ApiRequestPointXUser.class);
+    }
 
     public RoomDatabase.Builder<AllegroLocalDb> provideDb() {
        return Room.databaseBuilder(context,
@@ -64,6 +74,16 @@ public class AppModule {
                 fallbackToDestructiveMigration();
     }
 
+    public void cleanDb(Executor diskIO) {
+        diskIO.execute(new Runnable() {
+            @Override
+            public void run() {
+                Room.databaseBuilder(context,
+                        AllegroLocalDb.class, "database-allegro").
+                        fallbackToDestructiveMigration().build().clearAllTables();
+            }
+        });
+    }
 
 
 //

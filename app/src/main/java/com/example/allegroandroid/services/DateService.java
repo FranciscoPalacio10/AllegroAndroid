@@ -15,7 +15,6 @@ public class DateService {
     private String formato = "yyyy-MM-dd";
     private SimpleDateFormat sdf;
     private String zonaHoraria = "GMT-3";
-    ;
 
     private DateService() {
         sdf = new SimpleDateFormat(formato);
@@ -93,20 +92,28 @@ public class DateService {
         return diff;
     }
 
-    public static Calendar getCalendar(Date date) {
+    public Calendar getCalendar(Date date) {
         Calendar cal = Calendar.getInstance(Locale.US);
         cal.setTime(date);
         return cal;
     }
 
-    public static String convertSecondsToMinutes(long seconds) {
-        long minute = TimeUnit.SECONDS.toMinutes(seconds) -
+    public String convertSecondsToMinutes(long seconds) {
+        Long minute = TimeUnit.SECONDS.toMinutes(seconds) -
                 (TimeUnit.SECONDS.toHours(seconds) * 60);
 
-        long second = TimeUnit.SECONDS.toSeconds(seconds) -
+        Long second = TimeUnit.SECONDS.toSeconds(seconds) -
                 (TimeUnit.SECONDS.toMinutes(seconds) * 60);
 
-        return minute + ":" + second;
+        return twoDigits(minute.intValue()) + ":" + twoDigits(second.intValue());
+    }
+
+    private String add0ToTime(Long number) {
+        String numberToString = String.valueOf(number);
+        if(numberToString.length() == 1){
+            return "0" + numberToString;
+        }
+        return numberToString;
     }
 
     private String twoDigits(int n) {

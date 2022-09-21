@@ -13,7 +13,7 @@ public class Cursos {
     @ColumnInfo(name = "curso_description")
     private String description;
     @ColumnInfo(name = "curso_usuario_id")
-    private String usuarioId;
+    private String userId;
     @ColumnInfo(name = "curso_date_created")
     private String dateCreated;
     @ColumnInfo(name = "curso_date_modief")
@@ -43,12 +43,12 @@ public class Cursos {
         this.description = description;
     }
 
-    public String getUsuarioId() {
-        return usuarioId;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUsuarioId(String usuarioId) {
-        this.usuarioId = usuarioId;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getDateCreated() {

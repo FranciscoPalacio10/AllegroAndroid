@@ -1,6 +1,6 @@
-package com.example.allegroandroid.ui.caractersticas;
+package com.example.allegroandroid.models;
 
-public class caracteristicasItems {
+public class CaracteristicasItems {
     int imagen;
     String nombre;
 
@@ -21,7 +21,7 @@ public class caracteristicasItems {
         this.nombre = nombre;
     }
 
-    public caracteristicasItems(int imagen, String nombre) {
+    public CaracteristicasItems(int imagen, String nombre) {
         this.imagen=imagen;
         this.nombre=nombre;
 

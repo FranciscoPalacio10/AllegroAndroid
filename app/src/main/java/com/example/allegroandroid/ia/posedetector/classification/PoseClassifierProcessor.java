@@ -131,7 +131,7 @@ public class PoseClassifierProcessor {
                 Float maxConfidenceClassResult = classification.getClassConfidence(maxConfidenceClass) / poseClassifier.confidenceRange();
 
                 if (lastRepResult.pose == null) {
-                    counter.AddSecondsAndReps();
+                    counter.RestartsecondsAndReps();
                 } else {
                     if (maxConfidenceClassResult + 0.1 >= lastRepResult.confidence) {
                         counter.AddSecondsAndReps();

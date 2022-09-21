@@ -37,18 +37,17 @@
     <LinearLayout
         android:id="@+id/control2"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         android:background="@color/azulAllegro"
         android:orientation="horizontal">
 
       <Button
           android:id="@+id/select_image_button"
-          android:layout_width="230dp"
+          android:layout_width="200dp"
           android:layout_height="48dp"
           android:layout_gravity="center"
-          android:layout_margin="12dp"
-          android:layout_marginRight="5dp"
+          android:layout_margin="10dp"
           android:background="@drawable/bordeusuario"
           android:backgroundTint="@color/blanco"
           android:gravity="center"
@@ -59,9 +58,19 @@
 
       <Spinner
           android:id="@+id/size_selector"
+          android:gravity="center"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_gravity="center" />
+
+      <ImageButton
+          android:id="@+id/info_pose_still_imagge"
+          android:layout_width="50dp"
+          android:layout_gravity="center"
+          android:layout_height="50dp"
+          android:layout_marginLeft="20dp"
+          android:background="@drawable/informacion">
+      </ImageButton>
 
     </LinearLayout>
   </LinearLayout>

@@ -40,9 +40,9 @@ public abstract class NetworkBoundResource<ResultType, RequestType> {
 
         if (results != null) {
             NetworkBoundResource.this.postValue(Resource.success(results));
-        }else if(NetworkBoundResource.this.shouldFetch(result.getValue().data)) {
+        } else if (NetworkBoundResource.this.shouldFetch(result.getValue().data)) {
             NetworkBoundResource.this.fetchFromNetwork();
-        }else {
+        } else {
             NetworkBoundResource.this.postValue(Resource.success(loadFromSharedPreferences()));
         }
     }
@@ -93,15 +93,15 @@ public abstract class NetworkBoundResource<ResultType, RequestType> {
     }
 
     @WorkerThread
-    protected void processResponseErrors(ResponseBody errorBody, int code){
+    protected void processResponseErrors(ResponseBody errorBody, int code) throws Exception {
         JSONObject jObjError = null;
         try {
             jObjError = new JSONObject(errorBody.string());
-            NetworkBoundResource.this.postValue(Resource.errorFromApi(jObjError.getString("errors"),null, code));
+            NetworkBoundResource.this.postValue(Resource.errorFromApi(jObjError.getString("errors"), null, code));
         } catch (JSONException e) {
-            e.printStackTrace();
+            throw new Exception(e);
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new Exception(e);
         }
     }
 
@@ -113,14 +113,20 @@ public abstract class NetworkBoundResource<ResultType, RequestType> {
 
     protected void callApi(Call<ApiResponse<ResultType>> apiResponseCall) {
         apiResponseCall.enqueue(new Callback<ApiResponse<ResultType>>() {
+
             @Override
             public void onResponse(Call<ApiResponse<ResultType>> call, Response<ApiResponse<ResultType>> response) {
-                if (response.isSuccessful()) {
-                    saveCallResult(processResponse(response.body()));
-                }else {
-                    processResponseErrors(response.errorBody(), response.code());
+                try {
+                    if (response.isSuccessful()) {
+                        saveCallResult(processResponse(response.body()));
+                    } else {
+                        processResponseErrors(response.errorBody(), response.code());
+                    }
+                } catch (Exception e) {
+                    onFetchFailed(e);
+                    Log.e("fail on response", e.getMessage());
                 }
-                Log.e(response.message(), response.message());
+
             }
 
             @Override

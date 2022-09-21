@@ -37,7 +37,7 @@
     <string name="txtEdad">Ingrese edad</string>
     <string name="numero_de_clase">Numero de clase:</string>
     <string name="nombre_profesora">Nombre profesora:</string>
-    <string name="fecha_publicaci_n">Fecha publicación</string>
+    <string name="fecha_publicaci_n">FECHA DE\nPUBLICACIÓN:</string>
     <string name="clasica">CLASICA</string>
     <string name="JAZZ">JAZZ</string>
     <string name="fortalecer1">EJERCICIOS PARA FORTALECER PIE-PUNTAS</string>
@@ -106,7 +106,7 @@
     <string name="tiempoClase">TIEMPO:</string>
     <string name="fecha">"INICIÓ EL: "</string>
     <string name="nivele">NIVEL:</string>
-    <string name="fechaFinalada">"FINALIZÓ EL: "</string>
+    <string name="fechaFinalada">FINALIZÓ EL:</string>
     <string name="ingrese_contraseña">Ingrese Contraseña</string>
     <string name="instagram">Instagram</string>
     <string name="allegroInstagram">\@allegroinstitutodedanzas</string>
@@ -281,7 +281,7 @@
     <string name="camaraEnVivo">Evalúa en vivo</string>
     <string name="cameraEnVivoDescripcion">Evalua tu pose utilizando inteligencia artificial en vivo utilizando la camara de tu celular.</string>
     <string name="camaraCelular">Evalua estaticamente</string>
-    <string name="camaraCelularDescripcion">Evalua tu pose utilizando inteligencia artificial a través a traves de una foto.</string>
+    <string name="camaraCelularDescripcion">Evalua tu pose utilizando inteligencia artificial a través de una foto.</string>
     <string name="txt_pose_a_evaluar">POSE ELEGIDA:</string>
     <string name="txt_elige_pose">EVALUA TU TECNICA</string>
     <string name="txt_elige_materia">MATERIAS AÑO:</string>
@@ -292,9 +292,77 @@
     <string name="txt_se_evaluo">Se evaluó: </string>
     <string name="txt_hora">Fecha:</string>
     <string name="txt_puntos">Sumaste un total de:</string>
-    <string name="nameClase">NOMBRE: </string>
-    <string name="materia">MATERIA: </string>
+    <string name="nameClase">NOMBRE:</string>
+    <string name="materia">MATERIA:</string>
     <string name="clase">Clase</string>
     <string name="txt_resultados">INFORME</string>
+    <string name="explainPoseUno">
+        1. Los talones de ambos pies deben estar juntos.\n
+        \n
+         \n
+        2. Las puntas de los pies apuntan hacian afuera.\n
+        \n
+         \n
+        3. Los brazos se colocan hacia abajo formando un óvalo.
+    </string>
+    <string name="explainPoseDos">
+        1. El espacio entre los talones debe ser equivalente al de un pie.\n
+        \n
+         \n
+        2. Las puntas de los pies apuntan hacian afuera.\n
+        \n
+         \n
+        3. Los brazos se abren ampliamente formando una
+        línea con los hombros y ligeramente curvados.
+    </string>
+    <string name="explainPoseTres">
+        1. El talón de un pie se pone contra la parte central del otro.\n
+        \n
+         \n
+        2. Las puntas de los pies apuntan hacian afuera.\n
+        \n
+         \n
+        3. Un brazo curvado hacia arriba y el otro brazo\n
+        en línea con los hombros y ligeramente curvado.
+    </string>
+    <string name="explainPoseCuatro">
+          1. Los pies se cruzan de modo que el talón de un pie se encuentre a la misma altura que los dedos del otro y viceversa.\n
+        \n
+         \n
+        2. Las puntas de los pies apuntan hacian afuera.\n
+        \n
+         \n
+        3. Se debe dejar un espacio entre los pies equivalente al largo de un pie.\n
+         \n
+         \n
+        4. Un brazo curvado hacia adelante y el otro\n
+        hacia arriba también ligeramente curvado.
+    </string>
+    <string name="explainPoseCinco">
+         1. Los pies se cruzan de modo que el talón de un pie toque el dedo del otro y viceversa.\n
+        \n
+         \n
+        2. Las puntas de los pies apuntan hacian afuera.\n
+        \n
+         \n
+        3. Los brazos se colocan hacia arriba formando un\n
+        óvalo.
+    </string>
+    <string name="instrucciones">Instrucciones</string>
+    <string name="facebook">Facebook</string>
+    <string name="allegroFacebook">\@AllegroDanzas</string>
+    <string name="whatsapp">WhatsApp</string>
+    <string name="allegroWhatsapp">Allegro WhatsApp</string>
+    <string name="facebookUrl">https://www.facebook.com/profile.php?id=100009221322106</string>
+    <string name="instagramUrl">https://www.instagram.com/allegroinstitutodedanzas/</string>
+    <string name="whatsappUrl">https://wa.link/7um6rc</string>
+    <string name="txt_contacto">Contacto</string>
+    <string name="txt_redes_sociales">REDES SOCIALES</string>
+    <string name="txt_total_points">PUNTOS TOTALES</string>
+    <string name="txt_alumno">El alumno: </string>
+    <string name="txt_name">Pepito</string>
+    <string name="txt_acumulado">tiene acumulado un total de: </string>
+    <string name="tipodeclase">TIPO:</string>
+    <string name="fechaIniciada">INICIÓ EL:</string>
 
 </resources>

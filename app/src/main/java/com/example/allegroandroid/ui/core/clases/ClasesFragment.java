@@ -47,10 +47,10 @@ public class ClasesFragment extends Fragment {
     private static final String TAG = "ClasesFragment.class";
     private String tipoDeClase;
     private Integer idMateria;
-    ClasesViewModelNew clasesViewModelNew;
-    AppExecutors appExecutors;
-    AppModule appModule;
-    ProgressDialog progress;
+    private ClasesViewModelNew clasesViewModelNew;
+    private AppExecutors appExecutors;
+    private AppModule appModule;
+    private ProgressDialog progress;
     private FireBaseLoginService fireBaseLoginService;
     private RecyclerView recyclerView;
     private UserViewModel userViewModel;

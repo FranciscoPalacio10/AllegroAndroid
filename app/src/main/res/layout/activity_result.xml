@@ -42,8 +42,8 @@
                     <View
                         android:id="@+id/divider5"
                         android:layout_width="wrap_content"
-                        android:layout_marginLeft="75dp"
-                        android:layout_marginRight="75dp"
+                        android:layout_marginLeft="80dp"
+                        android:layout_marginRight="80dp"
                         android:layout_height="2dp"
                         android:background="@color/blanco" />
                 </LinearLayout>

@@ -42,7 +42,16 @@
         android:textOff=""
         android:textOn=""/>
 
+    <ImageButton
+        android:id="@+id/info_pose"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="50dp"
+        android:background="@drawable/informacion">
+    </ImageButton>
 
   </LinearLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

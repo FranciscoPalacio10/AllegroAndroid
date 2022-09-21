@@ -126,6 +126,7 @@ public class SelectCamaraClasePracticaFragment extends Fragment {
 
         CamaraSelect stillImageActivity = new CamaraSelect(getString(R.string.camaraCelular), getString(R.string.camaraCelularDescripcion),
                 R.id.action_selectCamaraClasePracticaFragment_to_stillImageActivity, historialDeClaseResponse);
+
         List<CamaraSelect> camaraSelectList = new ArrayList<CamaraSelect>();
         camaraSelectList.add(livePreviewActivity);
         camaraSelectList.add(stillImageActivity);
@@ -134,10 +135,10 @@ public class SelectCamaraClasePracticaFragment extends Fragment {
 
         recyclerView.setAdapter(adapterCursos);
 
-
-
         return v;
     }
+
+
 
 
 }

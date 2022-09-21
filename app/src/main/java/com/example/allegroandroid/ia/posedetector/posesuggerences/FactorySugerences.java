@@ -6,12 +6,12 @@ import com.example.allegroandroid.ia.posedetector.ConstantPoseToEvalute;
 
 public class FactorySugerences {
 
-    public static ISuggerence getSuggerence(String constantPoseToEvalute, GraphicOverlay graphicOverlay) {
+    public static ISuggerence getPoseToGetSuggerence(String constantPoseToEvalute, GraphicOverlay graphicOverlay) {
         switch (constantPoseToEvalute) {
             case ConstantPoseToEvalute.POSE_UNO:
                 return new PrimeraPoseSuggerence(graphicOverlay);
             default:
-                return new PrimeraPoseSuggerence(graphicOverlay);
+                return null;
         }
     }
 }

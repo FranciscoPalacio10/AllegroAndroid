@@ -44,7 +44,6 @@ import com.google.firebase.storage.OnPausedListener;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.rutaVideo;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -287,8 +286,8 @@ public class registrarClaseFragment extends Fragment {
 
 
     private void subirVideoStorage() {
-        rutaVideo rutaVideo = new rutaVideo(tipoDanza,nivelDanza,nro_clase,spinnerprofesora);
-        rutaArchivo= rutaVideo.getRutaArchivo();
+      //  rutaVideo rutaVideo = new rutaVideo(tipoDanza,nivelDanza,nro_clase,spinnerprofesora);
+        rutaArchivo="";
         StorageReference riversRef = clasesRef.child("Clases/"+rutaArchivo+"."+"mp4");
        uploadTask = clasesRef.child("Clases/"+rutaArchivo+"."+"mp4").putFile(uriVideoClase);
         btnCancelar.setOnClickListener(new View.OnClickListener() {

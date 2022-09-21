@@ -16,13 +16,11 @@
 
 package com.example.allegroandroid.ia;
 
-import static com.example.allegroandroid.constants.AppConstant.CODIGO_PERMISOS_CAMARA;
+
 import static java.lang.Math.max;
 
-import android.Manifest;
 import android.content.ContentValues;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -36,6 +34,7 @@ import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.Spinner;
@@ -44,6 +43,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.example.allegroandroid.PermissionApp;
 import com.example.allegroandroid.R;
@@ -51,7 +52,17 @@ import com.example.allegroandroid.constants.AppConstant;
 import com.example.allegroandroid.ia.posedetector.ConstantPoseToEvalute;
 import com.example.allegroandroid.ia.posedetector.PoseDetectorProcessor;
 import com.example.allegroandroid.ia.preference.PreferenceUtils;
+import com.example.allegroandroid.models.historialdeclase.HistorialDeClaseRequest;
 import com.example.allegroandroid.models.historialdeclase.HistorialDeClaseResponse;
+import com.example.allegroandroid.repository.HistorialDeClaseRepository;
+import com.example.allegroandroid.repository.resource.Resource;
+import com.example.allegroandroid.repository.resource.Status;
+import com.example.allegroandroid.services.FireBaseLoginService;
+import com.example.allegroandroid.services.token.SessionService;
+import com.example.allegroandroid.ui.MyViewModelFactory;
+import com.example.allegroandroid.utils.AppExecutors;
+import com.example.allegroandroid.utils.AppModule;
+import com.example.allegroandroid.viewmodel.HistorialDeClasesViewModel;
 import com.google.android.gms.common.annotation.KeepName;
 
 import com.google.gson.Gson;
@@ -65,7 +76,7 @@ import java.util.List;
  * Activity demonstrating different image detector features with a still image from camera.
  */
 @KeepName
-public final class StillImageActivity extends AppCompatActivity {
+public final class StillImageActivity extends AppCompatActivity{
 
     private static final String TAG = "StillImageActivity";
 
@@ -99,15 +110,36 @@ public final class StillImageActivity extends AppCompatActivity {
     private static HistorialDeClaseResponse historialDeClaseResponse;
     private PermissionApp permissionApp;
 
+    private HistorialDeClasesViewModel historialDeClasesViewModel;
+    private AppExecutors appExecutors;
+    private AppModule appModule;
+    private FireBaseLoginService fireBaseLoginService;
+    private ExplicationPose explicationPose;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_still_image);
 
 
-        HistorialDeClaseResponse historialDeClaseResponse = getExtras(AppConstant.HISTORIAL_DE_CLASE_RESPONSE);
-        this.historialDeClaseResponse = historialDeClaseResponse;
+        Bundle getIntent = getIntent().getExtras();
+        explicationPose = new ExplicationPose(this);
+        if(getIntent != null){
+            HistorialDeClaseResponse historialDeClaseResponse = getExtras(AppConstant.HISTORIAL_DE_CLASE_RESPONSE);
+            this.historialDeClaseResponse = historialDeClaseResponse;
+            explicationPose.showExplicationPose(historialDeClaseResponse.clase.name);
+            initHistorialClaseService();
+            postHistorial();
+        }
+
+        ImageButton btnInfo = findViewById(R.id.info_pose_still_imagge);
+        btnInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                explicationPose.showExplicationPose(historialDeClaseResponse.clase.name);
+            }
+        });
+
 
         findViewById(R.id.select_image_button)
                 .setOnClickListener(
@@ -175,6 +207,33 @@ public final class StillImageActivity extends AppCompatActivity {
         Gson gson = new Gson();
         HistorialDeClaseResponse jsonHistorialDeClaseResponse = gson.fromJson(historialClaseString, HistorialDeClaseResponse.class);
         return jsonHistorialDeClaseResponse;
+    }
+
+
+    private void initHistorialClaseService() {
+        appExecutors = new AppExecutors();
+        appModule = new AppModule(getApplicationContext());
+
+        fireBaseLoginService = new FireBaseLoginService(getString(R.string.default_web_client_id), this);
+
+        historialDeClasesViewModel = ViewModelProviders.of(this, new MyViewModelFactory<>(getApplication(),
+                new HistorialDeClaseRepository(appExecutors, appModule.provideHistorialDeClaseRetrofit(), appModule.provideDb(),
+                        new SessionService(this)
+                )))
+                .get(HistorialDeClasesViewModel.class);
+    }
+
+    private void postHistorial() {
+        historialDeClasesViewModel.setHistorialClaseRequestPost(new HistorialDeClaseRequest(false, historialDeClaseResponse.clase.claseId, 1,
+                1, 1));
+        historialDeClasesViewModel.postHistorialDeClases(fireBaseLoginService.getCurrentUser().getEmail()).observe(this, new Observer<Resource<HistorialDeClaseResponse>>() {
+            @Override
+            public void onChanged(Resource<HistorialDeClaseResponse> historialDeClaseResponseResource) {
+                if (historialDeClaseResponseResource.status == Status.SUCCESS) {
+                    historialDeClaseResponse = historialDeClaseResponseResource.data;
+                }
+            }
+        });
     }
 
     @Override
@@ -419,4 +478,5 @@ public final class StillImageActivity extends AppCompatActivity {
                     .show();
         }
     }
+
 }
