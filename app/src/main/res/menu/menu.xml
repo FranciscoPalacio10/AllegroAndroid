@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/home"
+        android:id="@+id/materiasFragment"
         android:icon="@drawable/home"
         android:title="INICIO"></item>
 
     <item
-        android:id="@+id/clases"
+        android:id="@+id/fragmentHistorialDeClase"
         android:icon="@drawable/clases"
         android:title="HISTORIAL"></item>
 

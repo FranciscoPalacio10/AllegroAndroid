@@ -3,13 +3,63 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/drawable-land/toggle_style.xml" value="0.25625" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/drawable-v24/list_item_background.xml" value="0.2234375" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/drawable/backgraoudcardsdesafios.xml" value="0.31979166666666664" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/drawable/bordeclases1.xml" value="0.31979166666666664" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/drawable/borderedes.xml" value="0.37864583333333335" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/drawable/circulodesafio.xml" value="0.37864583333333335" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/drawable/circulodesafiocompleto.xml" value="0.37864583333333335" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/drawable/degrade.xml" value="0.3828125" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/drawable/fondocard.xml" value="0.3828125" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/drawable/fondoleyenda.xml" value="0.3828125" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/drawable/ic_fast_rewind_black.xml" value="0.34010416666666665" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/drawable/ic_switch_camera_white_48dp.xml" value="0.16510416666666666" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/drawable/iniciosesion.xml" value="0.37864583333333335" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/drawable/start.xml" value="0.34010416666666665" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/drawable/toggle_style.xml" value="0.17447916666666666" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-large/activity_authenticacion.xml" value="0.8244047619047619" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-large/activity_main.xml" value="0.5125" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-large/adaptadorclaseencurso.xml" value="0.8141592920353983" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-large/adaptadorclasefinalizada.xml" value="0.8141592920353983" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-large/fragment_clases_registradas.xml" value="0.6001984126984127" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-large/fragment_home.xml" value="0.816468253968254" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-large/fragment_materias.xml" value="0.7589285714285714" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-normal/activity_autenticacion.xml" value="0.25" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-normal/activity_authenticacion.xml" value="0.2757731958762887" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-normal/activity_main.xml" value="0.30833333333333335" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-normal/adaptadorclaseencurso.xml" value="0.33958333333333335" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-normal/adaptadorclasefinalizada.xml" value="0.25" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-normal/adaptadorestilo.xml" value="0.2989583333333333" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-normal/fragment_home.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-normal/fragment_materias.xml" value="0.20364583333333333" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-small/adaptadorclaseencurso.xml" value="1.40625" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-small/adaptadorclasefinalizada.xml" value="1.40625" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-sw600dp/activity_authenticacion.xml" value="0.275" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-sw600dp/activity_choose_practice.xml" value="0.202734375" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-sw600dp/activity_chooser.xml" value="0.202734375" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-sw600dp/activity_settings.xml" value="0.15546875" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-sw600dp/activity_still_image.xml" value="0.202734375" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-sw600dp/activity_vision_camerax_live_preview.xml" value="0.15546875" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-sw600dp/activity_vision_live_preview.xml" value="0.202734375" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-sw600dp/adaptadorclaseencurso.xml" value="0.49110320284697506" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-sw600dp/adaptadorclasefinalizada.xml" value="0.18" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-sw600dp/adaptadordesafios.xml" value="0.26741803278688525" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-sw600dp/dialogexplainia.xml" value="0.160546875" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-sw600dp/fragment_materias.xml" value="0.14453125" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-sw600dp/selectpose.xml" value="0.202734375" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-sw600dp/settings_style.xml" value="0.11171875" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-sw600dp/spinner_style.xml" value="0.15546875" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-sw600dp/toggle_style.xml" value="0.15546875" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-xlarge/activity_authenticacion.xml" value="0.31040564373897706" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-xlarge/activity_main.xml" value="0.17592592592592593" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-xlarge/adaptadorclaseencurso.xml" value="0.31040564373897706" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-xlarge/adaptadorclasefinalizada.xml" value="0.31040564373897706" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-xlarge/fragment_materias.xml" value="0.16313932980599646" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/activity_autenticacion.xml" value="0.47368421052631576" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/activity_authenticacion.xml" value="0.6336633663366337" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/activity_choose_practice.xml" value="0.2328125" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/activity_chooser.xml" value="0.2328125" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/activity_complete_profile.xml" value="0.1" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/activity_error.xml" value="0.2140625" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/activity_load_user.xml" value="0.2563405797101449" />
@@ -18,20 +68,65 @@
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/activity_procces_login.xml" value="0.2078125" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/activity_registrar_clases.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/activity_reproductor_clase.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/activity_result.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/activity_settings.xml" value="0.14895833333333333" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/activity_still_image.xml" value="0.33" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/activity_user.xml" value="0.28940217391304346" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/activity_vision_camerax_live_preview.xml" value="0.14895833333333333" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/activity_vision_live_preview.xml" value="0.22" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/activity_youtube_reproductor.xml" value="0.20208333333333334" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/adaptadorclaseencurso.xml" value="0.67" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/adaptadorclasefinalizada.xml" value="0.25" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/adaptadorclases.xml" value="0.33" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/adaptadorcontacto.xml" value="0.3351449275362319" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/adaptadordesafios.xml" value="0.5" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/adaptadorestilo.xml" value="1.0773026315789473" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/adaptadornivel.xml" value="0.21354166666666666" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/adaptadorselectcamera.xml" value="0.33" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/caracteristicasitems.xml" value="0.34646739130434784" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/custom_player_ui.xml" value="0.34757505773672054" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/dialogexplainia.xml" value="0.2140625" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/dialogexplainpose.xml" value="0.34057971014492755" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/dialogoinformacion.xml" value="0.34646739130434784" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/dialogorestablecercontrasena.xml" value="0.34646739130434784" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/editarprofesora.xml" value="0.20208333333333334" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/exo_playback_control_view.xml" value="0.22864583333333333" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/fragment_caracteristicas.xml" value="0.209375" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/fragment_chose_profile.xml" value="0.30833333333333335" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/fragment_clase_finalizada.xml" value="0.2046875" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/fragment_clase_practica.xml" value="0.34646739130434784" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/fragment_clases.xml" value="0.25" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/fragment_clases2.xml" value="0.3233695652173913" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/fragment_clases_en_curso.xml" value="0.33958333333333335" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/fragment_clases_registradas.xml" value="1.3733552631578947" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/fragment_editar_clases.xml" value="0.2046875" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/fragment_home.xml" value="1.0279605263157894" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/fragment_materias.xml" value="1.2582236842105263" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/fragment_registrar_profesora.xml" value="0.3625" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/fragment_result.xml" value="0.360054347826087" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/fragment_select_camara_clase_practica.xml" value="0.33" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/fragment_social.xml" value="0.3351449275362319" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/fragment_tipo_de_clase.xml" value="0.27708333333333335" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/fragment_total_points.xml" value="0.27708333333333335" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/inicialclasica.xml" value="0.2341485507246377" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/selectpose.xml" value="0.14895833333333333" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/settings_style.xml" value="0.14895833333333333" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/spinner_style.xml" value="0.14895833333333333" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/tipodeclase.xml" value="0.3625" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/toggle_style.xml" value="0.20729166666666668" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/toogle_style.xml" value="0.3171875" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/user.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/menu/camera_button_menu.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/menu/menu.xml" value="0.14895833333333333" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/menu/menutoolbar.xml" value="0.14895833333333333" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/values-land/toggle_style.xml" value="0.20199275362318841" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/xml/pie_segment_formatter1.xml" value="0.3338541666666667" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/xml/preference_live_preview_quickstart.xml" value="0.20729166666666668" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/xml/preference_still_image.xml" value="0.2015625" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

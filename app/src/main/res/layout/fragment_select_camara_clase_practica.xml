@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.core.SelectCamaraClasePracticaFragment">
+
+    <com.google.android.material.appbar.CollapsingToolbarLayout
+        android:id="@+id/toolbar"
+        android:minHeight="?attr/actionBarSize"
+        android:background="@drawable/fondotoolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_marginLeft="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/fondo3"></ImageView>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="5dp"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/tv_eligetupractica"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/txt_pose_a_evaluar"
+                        style="@style/tituloHome"
+                        android:textSize="25sp"
+                        ></TextView>
+
+                    <TextView
+                        android:id="@+id/txtPoseAEvaularCamera"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="8dp"
+                        android:textStyle="italic"
+                        android:text="@string/txt_pose_uno"
+                        style="@style/tituloHome"
+                        android:textSize="25sp"
+                        ></TextView>
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/divider5"
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_height="2dp"
+                    android:background="@color/blanco" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/reciclyerSelectCamara"
+        style="@style/StyleRecicler" />
+
+</LinearLayout>

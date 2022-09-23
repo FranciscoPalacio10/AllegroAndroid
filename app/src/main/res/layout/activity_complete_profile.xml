@@ -70,7 +70,6 @@
             android:id="@+id/btnCreateUser"
             style="@style/StyleButton"
             android:text="@string/btnCompleteRegister"
-            android:onClick="createUser"
             />
     </LinearLayout>
 </LinearLayout>

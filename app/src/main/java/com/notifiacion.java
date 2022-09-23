@@ -10,8 +10,8 @@ import android.os.Build;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
-import com.example.allegrobackend.R;
-import com.example.allegrobackend.reprodcutor.reproductorClase;
+import com.example.allegroandroid.R;
+import com.example.allegroandroid.reprodcutor.reproductorClase;
 
 import static androidx.core.content.ContextCompat.getSystemService;
 

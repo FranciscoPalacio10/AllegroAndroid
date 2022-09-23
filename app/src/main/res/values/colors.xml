@@ -11,4 +11,8 @@
     <color name="blanco">#FFFFFF</color>
     <color name="azulAllegro">#5777b4</color>
     <color name="redesScoiales">#0510E6</color>
+    <color name="gray">#BFBFBF</color>
+    <color name="white">#FFFFFF</color>
+    <color name="blue">#4286f4</color>
+    <color name="red">#f44242</color>
 </resources>

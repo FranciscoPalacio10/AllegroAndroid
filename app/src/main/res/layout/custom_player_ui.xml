@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".clases.clases"
+    tools:context=".ui.core.clases.historialdeclases.HistorialDeClasesFragment"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
@@ -64,10 +64,6 @@
         android:gravity="center"
         android:orientation="horizontal"
         android:paddingTop="4dp">
-
-        <ImageButton
-            android:id="@id/btnPrev"
-            style="@style/ExoMediaButton.Previous" />
 
         <ImageButton
             android:id="@id/exo_rew"

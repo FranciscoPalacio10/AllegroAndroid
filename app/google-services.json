@@ -7,49 +7,20 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:807872375086:android:9b3a872ee7282fc712b2bf",
+        "mobilesdk_app_id": "1:807872375086:android:1d9bce8bf14f20dc12b2bf",
         "android_client_info": {
-          "package_name": "com.example.allegrobackend"
+          "package_name": "com.example.allegroandroid"
         }
       },
       "oauth_client": [
         {
-          "client_id": "807872375086-ufjl9ej8kv6uhmuhp8t66dnmtk50olji.apps.googleusercontent.com",
+          "client_id": "807872375086-j5lpbpo4u7ng3rsg8345fdabol57a222.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.allegrobackend",
+            "package_name": "com.example.allegroandroid",
             "certificate_hash": "499f09a4e0e62cc3962db86586b04c818fc33f36"
           }
         },
-        {
-          "client_id": "807872375086-ovu80odvpa73oqsu57rp8eqvs9egq2vh.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyB5PSAUDmkuAzKK9UjdcXmtsL7cZelN8Zg"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "807872375086-ovu80odvpa73oqsu57rp8eqvs9egq2vh.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:807872375086:android:501f1dd87834484412b2bf",
-        "android_client_info": {
-          "package_name": "com.example.allegrod"
-        }
-      },
-      "oauth_client": [
         {
           "client_id": "807872375086-ovu80odvpa73oqsu57rp8eqvs9egq2vh.apps.googleusercontent.com",
           "client_type": 3
