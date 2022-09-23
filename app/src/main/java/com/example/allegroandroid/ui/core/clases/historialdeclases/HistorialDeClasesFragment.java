@@ -56,6 +56,12 @@ public class HistorialDeClasesFragment extends Fragment {
     }
 
     @Override
+    public void onResume() {
+        initAdapter(getView());
+        super.onResume();
+    }
+
+    @Override
     public void onDestroy() {
         super.onDestroy();
     }
@@ -88,18 +94,20 @@ public class HistorialDeClasesFragment extends Fragment {
         progress = new ProgressDialog(getContext());
         requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v= inflater.inflate(R.layout.fragment_historial_de_clases, container, false);
+        View v = inflater.inflate(R.layout.fragment_historial_de_clases, container, false);
 
-        initAdapter(v);;
+        initAdapter(v);
+        ;
 
         return v;
     }
 
     private void initPagerAdapter(View v, ArrayList<HistorialDeClaseResponse> arrayListResource) {
-        HistorialDeClasesPagerAdapter sectionsPagerAdapter = new HistorialDeClasesPagerAdapter(getChildFragmentManager(),getContext(), arrayListResource );
+        HistorialDeClasesPagerAdapter sectionsPagerAdapter = new HistorialDeClasesPagerAdapter(getChildFragmentManager(), getContext(), arrayListResource);
         ViewPager viewPager = v.findViewById(R.id.view_pager3);
         viewPager.setAdapter(sectionsPagerAdapter);
         viewPager.setSaveEnabled(false);
@@ -114,6 +122,9 @@ public class HistorialDeClasesFragment extends Fragment {
             userViewModel.getUser().observe(getActivity(), new Observer<Resource<UserResponse>>() {
                 @Override
                 public void onChanged(Resource<UserResponse> userResponseResource) {
+                    if(!progress.isShowing()){
+                        progress.show();
+                    }
                     if (userResponseResource.status == Status.ERROR) {
                         ActivitiesInitiator.initErrorActivity(new InitActitvy(getContext(), getBundle(userResponseResource.message)));
                     } else if (userResponseResource.status == Status.SUCCESS) {
@@ -134,30 +145,33 @@ public class HistorialDeClasesFragment extends Fragment {
     }
 
     private void loadHistorialDeClases(Resource<UserResponse> userResponseResource, View v) {
-          historialDeClasesViewModel.setHistorialClaseRequestGet(new HistorialDeClaseRequestGet(userResponseResource.data.user,14, 1));
-          historialDeClasesViewModel.getHistorialDeClases().observe(getActivity(), new Observer<Resource<ArrayList<HistorialDeClaseResponse>>>() {
-              @Override
-              public void onChanged(Resource<ArrayList<HistorialDeClaseResponse>> arrayListResource) {
-                  if (arrayListResource.status == Status.ERROR) {
-                      ActivitiesInitiator.initErrorActivity(new InitActitvy(getContext(), getBundle(arrayListResource.message)));
-                  } else if (arrayListResource.status == Status.SUCCESS) {
-                      initPagerAdapter(v,arrayListResource.data);
-                      progress.dismiss();
-                  } else {
-                      progress.setTitle("Loading");
-                      progress.setMessage("Espera unos segundos...");
-                      progress.setCancelable(false); // disable dismiss by tapping outside of the dialog
-                      progress.show();
-                  }
-              }
-          });
+        historialDeClasesViewModel.setHistorialClaseRequestGet(new HistorialDeClaseRequestGet(userResponseResource.data.user, 14, 1));
+        historialDeClasesViewModel.getHistorialDeClases().observe(getActivity(), new Observer<Resource<ArrayList<HistorialDeClaseResponse>>>() {
+            @Override
+            public void onChanged(Resource<ArrayList<HistorialDeClaseResponse>> arrayListResource) {
+                if(!progress.isShowing()){
+                    progress.show();
+                }
+                if (arrayListResource.status == Status.ERROR) {
+                    ActivitiesInitiator.initErrorActivity(new InitActitvy(getContext(), getBundle(arrayListResource.message)));
+                } else if (arrayListResource.status == Status.SUCCESS) {
+                    initPagerAdapter(v, arrayListResource.data);
+                    progress.dismiss();
+                } else {
+                    progress.setTitle("Loading");
+                    progress.setMessage("Espera unos segundos...");
+                    progress.setCancelable(false); // disable dismiss by tapping outside of the dialog
+                    progress.show();
+                }
+            }
+        });
     }
 
 
     @Override
     public void onStart() {
-        super.onStart();
         initAdapter(getView());
+        super.onStart();
     }
 
     @NonNull
@@ -167,6 +181,7 @@ public class HistorialDeClasesFragment extends Fragment {
         pBundle.putString(AppConstant.ACTIVITY_WITH_ERROR, this.TAG);
         return pBundle;
     }
+
 
 }
 

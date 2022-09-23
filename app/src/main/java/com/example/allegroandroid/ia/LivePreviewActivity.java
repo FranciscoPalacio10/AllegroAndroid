@@ -16,6 +16,7 @@
 
 package com.example.allegroandroid.ia;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -26,6 +27,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -35,11 +37,13 @@ import com.example.allegroandroid.R;
 import com.example.allegroandroid.constants.AppConstant;
 import com.example.allegroandroid.ia.posedetector.PoseDetectorProcessor;
 import com.example.allegroandroid.ia.preference.PreferenceUtils;
+import com.example.allegroandroid.models.InitActitvy;
 import com.example.allegroandroid.models.historialdeclase.HistorialDeClaseRequest;
 import com.example.allegroandroid.models.historialdeclase.HistorialDeClaseResponse;
 import com.example.allegroandroid.repository.HistorialDeClaseRepository;
 import com.example.allegroandroid.repository.resource.Resource;
 import com.example.allegroandroid.repository.resource.Status;
+import com.example.allegroandroid.services.ActivitiesInitiator;
 import com.example.allegroandroid.services.FireBaseLoginService;
 import com.example.allegroandroid.services.token.SessionService;
 import com.example.allegroandroid.ui.MyViewModelFactory;
@@ -77,7 +81,7 @@ public final class LivePreviewActivity extends AppCompatActivity
     private AppModule appModule;
     private FireBaseLoginService fireBaseLoginService;
     private boolean showCamera = false;
-
+    private ProgressDialog progress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +93,7 @@ public final class LivePreviewActivity extends AppCompatActivity
         explicationPose = new ExplicationPose(this);
         explicationPose.setChangeListener(this);
         preview = findViewById(R.id.preview_view);
+        progress = new ProgressDialog(this);
 
         if (preview == null) {
             Log.d(TAG, "Preview is null");
@@ -105,7 +110,7 @@ public final class LivePreviewActivity extends AppCompatActivity
         if (getIntent != null) {
             HistorialDeClaseResponse historialDeClaseResponse = getExtras(AppConstant.HISTORIAL_DE_CLASE_RESPONSE);
             this.historialDeClaseResponse = historialDeClaseResponse;
-            explicationPose.showExplicationPose(historialDeClaseResponse.clase.name);
+            explicationPose.showExplicationPose(historialDeClaseResponse.clase.name, null);
             initHistorialClaseService();
         }
 
@@ -115,7 +120,7 @@ public final class LivePreviewActivity extends AppCompatActivity
         btnInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                explicationPose.showExplicationPose(historialDeClaseResponse.clase.name);
+                explicationPose.showExplicationPose(historialDeClaseResponse.clase.name, null);
             }
         });
     }
@@ -139,10 +144,19 @@ public final class LivePreviewActivity extends AppCompatActivity
         historialDeClasesViewModel.postHistorialDeClases(fireBaseLoginService.getCurrentUser().getEmail()).observe(this, new Observer<Resource<HistorialDeClaseResponse>>() {
             @Override
             public void onChanged(Resource<HistorialDeClaseResponse> historialDeClaseResponseResource) {
-                if (historialDeClaseResponseResource.status == Status.SUCCESS) {
+
+                if (historialDeClaseResponseResource.status == Status.ERROR) {
+                    ActivitiesInitiator.initErrorActivity(new InitActitvy(getApplicationContext(), getBundle(historialDeClaseResponseResource.message)));
+                } else if (historialDeClaseResponseResource.status == Status.SUCCESS) {
                     historialDeClaseResponse = historialDeClaseResponseResource.data;
                     createCameraSource(selectedModel);
                     startCameraSource();
+                    progress.dismiss();
+                } else {
+                    progress.setTitle("Loading");
+                    progress.setMessage("Preparando la práctica...");
+                    progress.setCancelable(false); // disable dismiss by tapping outside of the dialog
+                    progress.show();
                 }
             }
         });
@@ -305,10 +319,19 @@ public final class LivePreviewActivity extends AppCompatActivity
 
     @Override
     public void alertDialogIsClosed() {
-        if(!showCamera){
+        if (!showCamera) {
             showCamera = true;
             postHistorial();
         }
     }
+
+    @NonNull
+    private Bundle getBundle(String t) {
+        Bundle pBundle = new Bundle();
+        pBundle.putString(AppConstant.ERROR_MESSAGE, t);
+        pBundle.putString(AppConstant.ACTIVITY_WITH_ERROR, this.TAG);
+        return pBundle;
+    }
+
 }
 

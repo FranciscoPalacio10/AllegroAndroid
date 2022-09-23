@@ -359,10 +359,36 @@
     <string name="txt_contacto">Contacto</string>
     <string name="txt_redes_sociales">REDES SOCIALES</string>
     <string name="txt_total_points">PUNTOS TOTALES</string>
+    <string name="txt_points_desafios">PUNTOS-DESAFIOS</string>
     <string name="txt_alumno">El alumno: </string>
     <string name="txt_name">Pepito</string>
     <string name="txt_acumulado">tiene acumulado un total de: </string>
     <string name="tipodeclase">TIPO:</string>
     <string name="fechaIniciada">INICIÓ EL:</string>
+    <string name="txt_desafios">Desafios</string>
+    <string name="barraseperadora">/</string>
+    <string name="tipodedesafio">TIPO DE DESAFIO:</string>
+    <string name="txt_cantidad">Realizado/Total</string>
+    <string name="txt_points">Acutales/Total</string>
+    <string name="txt_desafio">Desafio</string>
+    <string name="txt_puntos_a">Puntos</string>
+    <string name="txt_punts_totales">TOTAL PUNTOS:</string>
+    <string name="txt_acumulado_A">ACUMULADO:</string>
+    <string name="siguiente">Siguiente >> </string>
+    <string name="anterior"><![CDATA[<< Anterior]]></string>
+    <string name="comoFunciona">¿Cómo funciona?</string>
+    <string name="explainFuncionamientoIa">AllegroApp cuenta con un modelo de inteligencia artificial
+        entrenado con cientos de imagenes que le permite evaluar de forma automatica las poses de la materia
+        danza clasica.</string>
+    <string name="explainFuncionamientoIa2">La IA evalua que tan preciso realizas cada una de las poses a partir
+        de la deteccion de 32 puntos del cuerpo. La forma de evaluar es  con una puntación de 0-100, donde: \n
+        \n
+         1. 0-100 Realizado de forma correcta: en este caso se pintará un circulo de color verde en la
+    parte superior de la cabeza  \n
+      \n
+        2. 0-100 Realizado de forma incorrecta: en este caso se pintará un circulo de color rojo en la
+    parte superior de la cabeza.
+
+    </string>
 
 </resources>

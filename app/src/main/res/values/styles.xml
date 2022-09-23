@@ -58,6 +58,19 @@
         <item name="android:typeface">normal</item>
     </style>
 
+    <style name="StyleDesafios">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">@string/txt_ano</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/blanco</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:typeface">normal</item>
+    </style>
+
+
     <style name="StyleCompleteProfileBox" parent="@android:style/TextAppearance.Medium">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>

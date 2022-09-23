@@ -7,7 +7,9 @@ public class AppConstant {
      * just register an account and request for an api key
      * when you will get an api key please replace with YOUR_API_KEY
      */
-    private static String url = "https://1353-2803-6604-7204-df00-e81f-f5e2-1adf-aa3e.sa.ngrok.io";
+
+    public static String LOCAL_HOST_BASE_URL_USER = "http://localhost:3000";
+    public static String LOCAL_HOST_BASE_URL_PLAN_STUDIO = "http://localhost:2000";
 
 
     public static String BASE_URL_USER = "PEPE";

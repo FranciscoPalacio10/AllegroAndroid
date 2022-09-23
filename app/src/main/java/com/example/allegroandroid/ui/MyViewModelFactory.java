@@ -6,11 +6,13 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.allegroandroid.repository.ClaseRepository;
+import com.example.allegroandroid.repository.DesafiosRepository;
 import com.example.allegroandroid.repository.HistorialDeClaseRepository;
 import com.example.allegroandroid.repository.PointXUserRepository;
 import com.example.allegroandroid.repository.TokenRepository;
 import com.example.allegroandroid.repository.UserRepository;
 import com.example.allegroandroid.viewmodel.ClasesViewModelNew;
+import com.example.allegroandroid.viewmodel.DesafiosViewModel;
 import com.example.allegroandroid.viewmodel.HistorialDeClasesViewModel;
 import com.example.allegroandroid.viewmodel.PointXUserViewModel;
 import com.example.allegroandroid.viewmodel.TokenViewModelNew;
@@ -39,6 +41,8 @@ public class MyViewModelFactory<T> extends ViewModelProvider.NewInstanceFactory 
             return (T) new HistorialDeClasesViewModel((HistorialDeClaseRepository) mParams, mApplication.getApplicationContext());
         } else if (modelClass == PointXUserViewModel.class) {
             return (T) new PointXUserViewModel((PointXUserRepository) mParams, mApplication.getApplicationContext());
+        }else if (modelClass == DesafiosViewModel.class) {
+            return (T) new DesafiosViewModel((DesafiosRepository) mParams, mApplication.getApplicationContext());
         }
         else {
             return super.create(modelClass);

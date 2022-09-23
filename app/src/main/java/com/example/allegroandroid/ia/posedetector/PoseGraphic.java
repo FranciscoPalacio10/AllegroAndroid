@@ -49,6 +49,7 @@ import com.google.mlkit.vision.common.PointF3D;
 import com.google.mlkit.vision.pose.Pose;
 import com.google.mlkit.vision.pose.PoseLandmark;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -70,7 +71,7 @@ public class PoseGraphic extends GraphicOverlay.Graphic {
     private float zMin = Float.MAX_VALUE;
     private float zMax = Float.MIN_VALUE;
 
-    private final List<ResultPoseClasifier> poseClassification;
+    private List<ResultPoseClasifier> poseClassification;
     private final Paint classificationTextPaint;
     private final Paint leftPaint;
     private final Paint rightPaint, backgroundCuadrado;
@@ -80,9 +81,10 @@ public class PoseGraphic extends GraphicOverlay.Graphic {
     private final GraphicOverlay graphicOverlay;
     private final Speaker speaker;
     private InitActitvy initActitvy;
-
-
     private HistorialDeClaseResponse historialDeClaseResponse;
+    private boolean isStartPoseGraphic = false;
+    private List<INotifier> notifierList = new ArrayList<>();
+
 
     PoseGraphic(
             Context context,
@@ -152,6 +154,7 @@ public class PoseGraphic extends GraphicOverlay.Graphic {
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void draw(Canvas canvas) {
+
         List<PoseLandmark> landmarks = pose.getAllPoseLandmarks();
 
         if (landmarks.isEmpty()) {
@@ -395,6 +398,21 @@ public class PoseGraphic extends GraphicOverlay.Graphic {
         drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
         drawable.draw(canvas);
         return bitmap;
+    }
+
+    public void addObserver(INotifier channel) {
+        this.notifierList.add(channel);
+    }
+
+    public void removeObserver(INotifier channel) {
+        this.notifierList.remove(channel);
+    }
+
+    public void setIsStartPoseGraphic(Boolean news) {
+        this.isStartPoseGraphic = news;
+        for (INotifier channel : this.notifierList) {
+            channel.update(this.isStartPoseGraphic);
+        }
     }
 
 }

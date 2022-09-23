@@ -8,6 +8,7 @@ import androidx.room.RoomDatabase;
 import com.example.allegroandroid.constants.AppConstant;
 import com.example.allegroandroid.localdb.AllegroLocalDb;
 import com.example.allegroandroid.webservices.clases.ApiRequestClases;
+import com.example.allegroandroid.webservices.desafios.ApiRequestDesafios;
 import com.example.allegroandroid.webservices.historialdeclases.ApiRequestHistorialDeClases;
 import com.example.allegroandroid.webservices.pointxuser.ApiRequestPointXUser;
 import com.example.allegroandroid.webservices.token.ApiRequestToken;
@@ -66,6 +67,14 @@ public class AppModule {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
                 .create(ApiRequestPointXUser.class);
+    }
+
+    public ApiRequestDesafios provideDesafiosRetrofit() {
+        return new Retrofit.Builder()
+                .baseUrl(AppConstant.BASE_URL_PLAN_STUDIO)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+                .create(ApiRequestDesafios.class);
     }
 
     public RoomDatabase.Builder<AllegroLocalDb> provideDb() {

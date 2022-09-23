@@ -180,5 +180,9 @@ public class ClasesFragment extends Fragment {
         super.onStart();
         initAdapter();
     }
-
+    @Override
+    public void onResume() {
+        initAdapter();
+        super.onResume();
+    }
 }

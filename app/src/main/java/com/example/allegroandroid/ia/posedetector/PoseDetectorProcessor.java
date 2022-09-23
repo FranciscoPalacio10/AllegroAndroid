@@ -27,6 +27,7 @@ import com.example.allegroandroid.ia.VisionProcessorBase;
 import com.example.allegroandroid.ia.posedetector.classification.PoseClassifierProcessor;
 import com.example.allegroandroid.ia.posedetector.classification.ResultPoseClasifier;
 import com.example.allegroandroid.models.historialdeclase.HistorialDeClaseResponse;
+import com.example.allegroandroid.services.DateService;
 import com.google.android.gms.tasks.Task;
 import com.google.android.odml.image.MlImage;
 import com.google.mlkit.vision.common.InputImage;
@@ -37,6 +38,7 @@ import com.google.mlkit.vision.pose.PoseDetector;
 import com.google.mlkit.vision.pose.PoseDetectorOptionsBase;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -60,6 +62,8 @@ public class PoseDetectorProcessor
     private final HistorialDeClaseResponse historialDeClaseResponse;
     private PoseClassifierProcessor poseClassifierProcessor;
     private Speaker speaker;
+    private Date timeStart;
+
     /**
      * Internal class to hold Pose and classification results.
      */
@@ -102,6 +106,7 @@ public class PoseDetectorProcessor
         this.historialDeClaseResponse = historialDeClaseResponse;
         this.speaker = speaker;
         classificationExecutor = Executors.newSingleThreadExecutor();
+        this.timeStart = DateService.getInstance().getDateNow();
     }
 
     @Override
@@ -162,7 +167,17 @@ public class PoseDetectorProcessor
                 historialDeClaseResponse,
                 poseWithClassification.classificationResult,
                 speaker);
+
+        Date now =  DateService.getInstance().getDateNow();
+        Float secondsToStart = DateService.getInstance().getSecondsBetweenTwoDates(timeStart, now);
+        Log.e(TAG, "onSuccess: "+ secondsToStart.toString());
+
+        graphic.addObserver(poseClassifierProcessor);
         graphicOverlay.add(graphic);
+
+        if(secondsToStart > 15){
+            graphic.setIsStartPoseGraphic(true);
+        }
     }
 
     @Override
@@ -175,4 +190,5 @@ public class PoseDetectorProcessor
         // Use MlImage in Pose Detection by default, change it to OFF to switch to InputImage.
         return true;
     }
+
 }

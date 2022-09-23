@@ -9,7 +9,7 @@ import com.example.allegroandroid.models.pointsxuser.PointXUserResponse;
 import com.example.allegroandroid.models.user.get.UserResponse;
 
 
-@Database(entities = {UserResponse.class, ClaseResponse.class, HistorialDeClaseResponse.class, PointXUserResponse.class}, version = 37)
+@Database(entities = {UserResponse.class, ClaseResponse.class, HistorialDeClaseResponse.class, PointXUserResponse.class}, version = 38)
 public abstract class AllegroLocalDb extends RoomDatabase {
 
     abstract public UserDao userDao();

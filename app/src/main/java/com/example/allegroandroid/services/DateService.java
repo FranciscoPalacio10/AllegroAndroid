@@ -92,6 +92,16 @@ public class DateService {
         return diff;
     }
 
+
+    public float getSecondsBetweenTwoDates(Date first, Date last) {
+        Calendar a = getCalendar(first);
+        Calendar b = getCalendar(last);
+        float diff = (last.getTime() - first.getTime()) /1000;
+        return diff;
+    }
+
+
+
     public Calendar getCalendar(Date date) {
         Calendar cal = Calendar.getInstance(Locale.US);
         cal.setTime(date);

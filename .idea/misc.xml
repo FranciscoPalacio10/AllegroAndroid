@@ -5,6 +5,11 @@
       <map>
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/drawable-land/toggle_style.xml" value="0.25625" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/drawable-v24/list_item_background.xml" value="0.2234375" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/drawable/backgraoudcardsdesafios.xml" value="0.31979166666666664" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/drawable/bordeclases1.xml" value="0.31979166666666664" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/drawable/borderedes.xml" value="0.37864583333333335" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/drawable/circulodesafio.xml" value="0.37864583333333335" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/drawable/circulodesafiocompleto.xml" value="0.37864583333333335" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/drawable/degrade.xml" value="0.3828125" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/drawable/fondocard.xml" value="0.3828125" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/drawable/fondoleyenda.xml" value="0.3828125" />
@@ -39,6 +44,8 @@
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-sw600dp/activity_vision_live_preview.xml" value="0.202734375" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-sw600dp/adaptadorclaseencurso.xml" value="0.49110320284697506" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-sw600dp/adaptadorclasefinalizada.xml" value="0.18" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-sw600dp/adaptadordesafios.xml" value="0.26741803278688525" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-sw600dp/dialogexplainia.xml" value="0.160546875" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-sw600dp/fragment_materias.xml" value="0.14453125" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-sw600dp/selectpose.xml" value="0.202734375" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout-sw600dp/settings_style.xml" value="0.11171875" />
@@ -72,11 +79,13 @@
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/adaptadorclasefinalizada.xml" value="0.25" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/adaptadorclases.xml" value="0.33" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/adaptadorcontacto.xml" value="0.3351449275362319" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/adaptadordesafios.xml" value="0.5" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/adaptadorestilo.xml" value="1.0773026315789473" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/adaptadornivel.xml" value="0.21354166666666666" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/adaptadorselectcamera.xml" value="0.33" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/caracteristicasitems.xml" value="0.34646739130434784" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/custom_player_ui.xml" value="0.34757505773672054" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/dialogexplainia.xml" value="0.2140625" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/dialogexplainpose.xml" value="0.34057971014492755" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/dialogoinformacion.xml" value="0.34646739130434784" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/layout/dialogorestablecercontrasena.xml" value="0.34646739130434784" />
@@ -111,6 +120,7 @@
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/menu/menu.xml" value="0.14895833333333333" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/menu/menutoolbar.xml" value="0.14895833333333333" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/values-land/toggle_style.xml" value="0.20199275362318841" />
+        <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/xml/pie_segment_formatter1.xml" value="0.3338541666666667" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/xml/preference_live_preview_quickstart.xml" value="0.20729166666666668" />
         <entry key="..\:/Users/HP/Desktop/Allegro/AllegroAndroid/app/src/main/res/xml/preference_still_image.xml" value="0.2015625" />
       </map>

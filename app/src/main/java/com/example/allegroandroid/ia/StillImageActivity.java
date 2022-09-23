@@ -127,7 +127,7 @@ public final class StillImageActivity extends AppCompatActivity{
         if(getIntent != null){
             HistorialDeClaseResponse historialDeClaseResponse = getExtras(AppConstant.HISTORIAL_DE_CLASE_RESPONSE);
             this.historialDeClaseResponse = historialDeClaseResponse;
-            explicationPose.showExplicationPose(historialDeClaseResponse.clase.name);
+            explicationPose.showExplicationPose(historialDeClaseResponse.clase.name, null);
             initHistorialClaseService();
             postHistorial();
         }
@@ -136,7 +136,7 @@ public final class StillImageActivity extends AppCompatActivity{
         btnInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                explicationPose.showExplicationPose(historialDeClaseResponse.clase.name);
+                explicationPose.showExplicationPose(historialDeClaseResponse.clase.name, null);
             }
         });
 

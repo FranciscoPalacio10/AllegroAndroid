@@ -105,20 +105,21 @@ public class AuthenticationActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         mFirebaseRemoteConfig.fetchAndActivate()
-                .addOnCompleteListener(this, new OnCompleteListener<Boolean>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Boolean> task) {
-                        if (task.isSuccessful()) {
-                            boolean updated = task.getResult();
+                .addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()) {
+                        Log.i(TAG, mFirebaseRemoteConfig.getString("url_user"));
+                        if (mFirebaseRemoteConfig.getString("url_user").contains("http")) {
                             AppConstant.BASE_URL_USER = mFirebaseRemoteConfig.getString("url_user");
-                            Log.i(TAG, mFirebaseRemoteConfig.getString("url_user"));
                             AppConstant.BASE_URL_PLAN_STUDIO = mFirebaseRemoteConfig.getString("url_plan_studio");
-                            updateUI(fireBaseLoginService.getCurrentUser());
                         } else {
-                            ActivitiesInitiator.initErrorActivity(new InitActitvy(getApplicationContext(), getBundle(task.getException().getMessage())));
+                            AppConstant.BASE_URL_USER = AppConstant.LOCAL_HOST_BASE_URL_USER;
+                            AppConstant.BASE_URL_PLAN_STUDIO = AppConstant.LOCAL_HOST_BASE_URL_PLAN_STUDIO;
                         }
-
+                        updateUI(fireBaseLoginService.getCurrentUser());
+                    } else {
+                        ActivitiesInitiator.initErrorActivity(new InitActitvy(getApplicationContext(), getBundle(task.getException().getMessage())));
                     }
+
                 });
     }
 
@@ -186,7 +187,7 @@ public class AuthenticationActivity extends AppCompatActivity {
                 getTokenFromApi(account.getEmail());
             }
         } catch (Exception e) {
-            Log.e(TAG, e.getMessage());
+            ActivitiesInitiator.initErrorActivity(new InitActitvy(getApplicationContext(), getBundle(e.getMessage())));
         }
     }
 

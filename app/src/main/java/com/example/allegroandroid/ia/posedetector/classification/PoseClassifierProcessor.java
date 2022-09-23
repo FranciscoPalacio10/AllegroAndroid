@@ -22,6 +22,7 @@ import android.util.Log;
 
 import androidx.annotation.WorkerThread;
 
+import com.example.allegroandroid.ia.posedetector.INotifier;
 import com.google.common.base.Preconditions;
 import com.google.mlkit.vision.pose.Pose;
 
@@ -35,7 +36,7 @@ import java.util.List;
 /**
  * Accepts a stream of {@link Pose} for classification and Rep counting.
  */
-public class PoseClassifierProcessor {
+public class PoseClassifierProcessor implements INotifier {
     private static final String TAG = "PoseClassifierProcessor";
     private static final String POSE_SAMPLES_FILE = "pose/fitness_poses_csvs_out_basic.csv";
 
@@ -66,6 +67,7 @@ public class PoseClassifierProcessor {
     private Integer contador;
     private Counter counter;
     private Date date;
+    private boolean start = false;
 
     @WorkerThread
     public PoseClassifierProcessor(Context context, boolean isStreamMode) {
@@ -111,8 +113,14 @@ public class PoseClassifierProcessor {
      */
     @WorkerThread
     public List<ResultPoseClasifier> getPoseResult(Pose pose) {
-        Preconditions.checkState(Looper.myLooper() != Looper.getMainLooper());
         List<ResultPoseClasifier> result = new ArrayList<>();
+
+        if (!start) {
+            return result;
+        }
+
+        Preconditions.checkState(Looper.myLooper() != Looper.getMainLooper());
+
         ClassificationResult classification = poseClassifier.classify(pose);
 
         // Update {@link RepetitionCounter}s if {@code isStreamMode}.
@@ -145,14 +153,20 @@ public class PoseClassifierProcessor {
             }
         }
 
+
         // Add maxConfidence class of current frame to result if pose is found.
         if (!pose.getAllPoseLandmarks().isEmpty()) {
             String maxConfidenceClass = classification.getMaxConfidenceClass();
             Float maxConfidenceClassResult = classification.getClassConfidence(maxConfidenceClass) / poseClassifier.confidenceRange();
             result.add(new ResultPoseClasifier(maxConfidenceClass, maxConfidenceClassResult, counter, isStreamMode));
         }
-
+        Log.e("counter", counter.GetSecondsLast().toString() + " " + counter.getRepetition().toString());
+        Log.e("result", result.get(0).pose + result.get(0).confidence);
         return result;
     }
 
+    @Override
+    public void update(Object o) {
+        start = (boolean) o;
+    }
 }
